@@ -1,75 +1,112 @@
 # Proteomics-Informed Geometric Framework for Identifiability and Panel Design in Genome-Scale Metabolic Networks
 
-## Overview
-
-This repository contains code and analysis pipelines for constructing a proteomics-informed, metabolite-centric geometric representation of genome-scale metabolic models (GEMs).
-
-The framework introduces a condition-specific metabolite Laplacian derived from:
-
-- Stoichiometric structure
-- Gene–protein–reaction (GPR) rules
-- Gene-level proteomics
-- Metabolite reliability weighting
-
-Partial metabolomic observability is modeled as an operator restriction problem, and identifiability is defined as stability of spectral geometry under metabolite masking.
-
-This repository reproduces all figures and ablation analyses presented in the manuscript.
+Author: **Anas Enoch, MD**  
+Mohammed VI University of Health Sciences (UM6SS), Casablanca, Morocco
 
 ---
 
-## Core Concept
+## Overview
 
-For each biological condition \( c \), we construct:
+This repository contains the code accompanying the manuscript:
 
-\[
-\Delta_M^{(c)} = W_M^{1/2} S W_R^{(c)} S^\top W_M^{1/2}
-\]
+**“A Proteomics-Informed Geometric Framework for Identifiability and Panel Design in Genome-Scale Metabolic Networks.”**
 
-where:
+The framework constructs a proteomics-informed metabolite operator derived from the stoichiometric structure of genome-scale metabolic models.
 
-- \( S \) = stoichiometric matrix
-- \( W_R^{(c)} \) = reaction weight matrix derived from proteomics
-- \( W_M \) = metabolite reliability weighting
+The metabolite Laplacian:
 
-The induced spectral geometry is analyzed using:
+Δ_M = W_M^(1/2) S W_R Sᵀ W_M^(1/2)
 
-- Low-frequency eigenvalues
-- Heat trace
-- Diffusion distances
+defines a condition-specific metabolic geometry that enables:
+
+• mechanistic identifiability analysis  
+• geometry-preserving metabolite panel design  
+• robustness analysis under partial metabolite observability  
+• downstream disease classification evaluation
 
 ---
 
 ## Repository Structure
-├── data/                 # Proteomics and model data
-├── scripts/              # Figure generation and analysis scripts
-├── results/              # Output files
-├── figures/              # Final manuscript figures
-├── README.md
-├── FIGURE_CAPTIONS.md
+scripts/
+figure generation and analysis scripts
+
+figures/
+generated figures used in the manuscript
+
+Human-GEM-main/
+Human genome-scale metabolic model
+
+ST003506_AN005756.txt
+breast cancer metabolomics cohort
+
+references.bib
+bibliography
+
+FIGURE_CAPTIONS.md
+figure captions
+
+DATA_SOURCES.md
+dataset references
+
 ---
 
-## Key Analyses
+## Core Components
 
-- Operator construction from stoichiometry + proteomics
-- OR-aggregator parameter sensitivity
-- Nonlinear saturation mapping robustness
-- Permutation ablation control
-- Geometry-preserving metabolite panel selection
-- Cohort-level classification demonstration
+The repository implements:
+
+• stoichiometric network loading via COBRApy  
+• proteomics-informed reaction weighting  
+• metabolite Laplacian construction  
+• spectral geometry analysis  
+• greedy metabolite panel selection  
+• robustness experiments (permutation tests, OR aggregation sensitivity)  
+• proof-of-concept disease classification
 
 ---
 
-## Reproducibility
+## Dependencies
 
-All scripts are written in Python and rely on:
+Python ≥ 3.10
 
-- numpy
-- scipy
-- matplotlib
-- COBRApy
+Required packages:
 
-To reproduce Figure 5:
+cobra  
+numpy  
+scipy  
+pandas  
+scikit-learn  
+matplotlib
 
-```bash
-python scripts/figure5_permutation_robustness.py
-python scripts/make_figures.py
+Install dependencies:
+
+pip install cobra numpy scipy pandas scikit-learn matplotlib
+
+---
+
+## Example Execution
+
+Example operator analysis:
+
+python scripts/Fig7_rewiring.py --model Human-GEM-main/model/Human-GEM.xml
+
+Example cohort classification:
+
+python scripts/classify_ST003506_operator.py \
+--table ST003506_AN005756.txt \
+--model Human-GEM-main/model/Human-GEM.xml
+
+---
+
+## Data Availability
+
+All datasets used in this study are publicly available.
+
+See:
+
+DATA_SOURCES.md
+
+---
+
+## Citation
+
+If you use this framework please cite the associated manuscript.
