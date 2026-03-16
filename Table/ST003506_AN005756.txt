@@ -1,0 +1,297 @@
+#METABOLOMICS WORKBENCH vadim.yanshole@tomo.nsc.ru_20240916_210258 DATATRACK_ID:5197 STUDY_ID:ST003506 ANALYSIS_ID:AN005756 PROJECT_ID:PR002152
+VERSION             	1
+CREATED_ON             	October 1, 2024, 2:14 pm
+#PROJECT
+PR:PROJECT_TITLE                 	Metabolomics of breast cancer-related lymphedema
+PR:PROJECT_SUMMARY               	Diagnosing and treating diseases such as breast cancer-related lymphedema (BCRL)
+PR:PROJECT_SUMMARY               	is challenging due to a limited understanding of the underlying mechanisms.
+PR:PROJECT_SUMMARY               	Despite recent advancements, BCRL significantly impacts patients' quality of
+PR:PROJECT_SUMMARY               	life, as current treatments only manage symptoms. Leveraging modern
+PR:PROJECT_SUMMARY               	high-throughput omics technologies, particularly metabolomics, holds potential
+PR:PROJECT_SUMMARY               	to address these challenges.
+PR:INSTITUTE                     	International Tomography Center SB RAS
+PR:LABORATORY                    	Laboratory of Proteomics and Metabolomics
+PR:LAST_NAME                     	Yanshole
+PR:FIRST_NAME                    	Vadim
+PR:ADDRESS                       	Institutskaya 3a, Novosibirsk, Russia
+PR:EMAIL                         	vadim.yanshole@tomo.nsc.ru
+PR:PHONE                         	+73833303136
+PR:FUNDING_SOURCE                	Russian Science Foundation, grant number 23-25-00462
+PR:CONTRIBUTORS                  	Vadim V. Yanshole, Lyudmila V. Yanshole, Daria S. Gorina, Nataliya A. Osik,
+PR:CONTRIBUTORS                  	Vadim V. Nimaev, and Yuri P. Tsentalovich
+#STUDY
+ST:STUDY_TITLE                   	Comparison of serum and interstitial fluid from patients with breast
+ST:STUDY_TITLE                   	cancer-related lymphedema and healthy control subjects with NMR-based
+ST:STUDY_TITLE                   	metabolomics
+ST:STUDY_SUMMARY                 	Diagnosing and treating diseases such as breast cancer-related lymphedema (BCRL)
+ST:STUDY_SUMMARY                 	is challenging due to a limited understanding of the underlying mechanisms.
+ST:STUDY_SUMMARY                 	Despite recent advancements, BCRL significantly impacts patients' quality of
+ST:STUDY_SUMMARY                 	life, as current treatments only manage symptoms. Leveraging modern
+ST:STUDY_SUMMARY                 	high-throughput omics technologies, particularly metabolomics, holds potential
+ST:STUDY_SUMMARY                 	to address these challenges. Metabolomics offers insights into dynamic changes
+ST:STUDY_SUMMARY                 	influenced by internal and external factors, aiding in understanding the tissue
+ST:STUDY_SUMMARY                 	physiology and detecting pathological conditions. The investigation of
+ST:STUDY_SUMMARY                 	metabolomic biomarkers holds promise for early lymphedema diagnosis and
+ST:STUDY_SUMMARY                 	personalized treatment. The deposited dataset represent high-resolution nuclear
+ST:STUDY_SUMMARY                 	magnetic resonance (NMR) data for patients' blood serum and interstitial fluid,
+ST:STUDY_SUMMARY                 	obtained after breast cancer treatment and with diagnosed BCRL, as well as
+ST:STUDY_SUMMARY                 	control samples. Simple statistical analysis yielded increased concentrations of
+ST:STUDY_SUMMARY                 	pyruvate, citrate, 2-ketoisovalerate, ketoleucine, 3-methyl-2-oxovalerate,
+ST:STUDY_SUMMARY                 	tryptophan, and ascorbate in serum samples from patients with lymphedema. This
+ST:STUDY_SUMMARY                 	dataset can aid in identifying early-stage lymphedema biomarkers and deepen
+ST:STUDY_SUMMARY                 	insights into lymphatic system function thus leading to the development of
+ST:STUDY_SUMMARY                 	effective diagnostic and therapeutic tools.
+ST:INSTITUTE                     	International Tomography Center SB RAS
+ST:LABORATORY                    	Laboratory of Proteomics and Metabolomics
+ST:LAST_NAME                     	Yanshole
+ST:FIRST_NAME                    	Vadim
+ST:ADDRESS                       	Institutskaya 3a, Novosibirsk, Russia
+ST:EMAIL                         	vadim.yanshole@tomo.nsc.ru
+ST:PHONE                         	+73833303136
+ST:NUM_GROUPS                    	3
+ST:TOTAL_SUBJECTS                	34
+#SUBJECT
+SU:SUBJECT_TYPE                  	Human
+SU:SUBJECT_SPECIES               	Homo sapiens
+SU:TAXONOMY_ID                   	9606
+SU:AGE_OR_AGE_RANGE              	50-79
+SU:GENDER                        	Female
+#SUBJECT_SAMPLE_FACTORS:         	SUBJECT(optional)[tab]SAMPLE[tab]FACTORS(NAME:VALUE pairs separated by |)[tab]Raw file names and additional sample data
+SUBJECT_SAMPLE_FACTORS           	K1	K1	Sample source:Blood serum | Group:Control	Diseases=Coxarthrosis; RAW_FILE_NAME(Raw NMR file)=K1.zip
+SUBJECT_SAMPLE_FACTORS           	K2	K2	Sample source:Blood serum | Group:Control	Diseases=Coxarthrosis; RAW_FILE_NAME(Raw NMR file)=K2.zip
+SUBJECT_SAMPLE_FACTORS           	K3	K3	Sample source:Blood serum | Group:Control	Diseases=Gonarthrosis; RAW_FILE_NAME(Raw NMR file)=K3.zip
+SUBJECT_SAMPLE_FACTORS           	K4	K4	Sample source:Blood serum | Group:Control	Diseases=Solitary renal cyst; RAW_FILE_NAME(Raw NMR file)=K4.zip
+SUBJECT_SAMPLE_FACTORS           	K5	K5	Sample source:Blood serum | Group:Control	Diseases=Gonarthrosis; RAW_FILE_NAME(Raw NMR file)=K5.zip
+SUBJECT_SAMPLE_FACTORS           	K7	K7	Sample source:Blood serum | Group:Control	Diseases=Aseptic loosening of knee joint replacements; RAW_FILE_NAME(Raw NMR file)=K7.zip
+SUBJECT_SAMPLE_FACTORS           	K8	K8	Sample source:Blood serum | Group:Control	Diseases=Gonarthrosis; RAW_FILE_NAME(Raw NMR file)=K8.zip
+SUBJECT_SAMPLE_FACTORS           	K9	K9	Sample source:Blood serum | Group:Control	Diseases=Aseptic loosening of knee joint replacements; RAW_FILE_NAME(Raw NMR file)=K9.zip
+SUBJECT_SAMPLE_FACTORS           	K10	K10	Sample source:Blood serum | Group:Control	Diseases=Gonarthrosis; RAW_FILE_NAME(Raw NMR file)=K10.zip
+SUBJECT_SAMPLE_FACTORS           	K11	K11	Sample source:Blood serum | Group:Control	Diseases=Stage 2 hypertension; RAW_FILE_NAME(Raw NMR file)=K11.zip
+SUBJECT_SAMPLE_FACTORS           	K12	K12	Sample source:Blood serum | Group:Control	Diseases=Gonarthrosis; RAW_FILE_NAME(Raw NMR file)=K12.zip
+SUBJECT_SAMPLE_FACTORS           	K13	K13	Sample source:Blood serum | Group:Control	Diseases=Articulating spacer; RAW_FILE_NAME(Raw NMR file)=K13.zip
+SUBJECT_SAMPLE_FACTORS           	245c	245c	Sample source:Blood serum | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=245c.zip
+SUBJECT_SAMPLE_FACTORS           	248c	248c	Sample source:Blood serum | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=248c.zip
+SUBJECT_SAMPLE_FACTORS           	249c	249c	Sample source:Blood serum | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=249c.zip
+SUBJECT_SAMPLE_FACTORS           	250c	250c	Sample source:Blood serum | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=250c.zip
+SUBJECT_SAMPLE_FACTORS           	252c	252c	Sample source:Blood serum | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=252c.zip
+SUBJECT_SAMPLE_FACTORS           	253c	253c	Sample source:Blood serum | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=253c.zip
+SUBJECT_SAMPLE_FACTORS           	257c	257c	Sample source:Blood serum | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=257c.zip
+SUBJECT_SAMPLE_FACTORS           	258c	258c	Sample source:Blood serum | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=258c.zip
+SUBJECT_SAMPLE_FACTORS           	259c	259c	Sample source:Blood serum | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=259c.zip
+SUBJECT_SAMPLE_FACTORS           	s251	s251	Sample source:Blood serum | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=s251.zip
+SUBJECT_SAMPLE_FACTORS           	s253	s253	Sample source:Blood serum | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=s253.zip
+SUBJECT_SAMPLE_FACTORS           	s293	s293	Sample source:Blood serum | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=s293.zip
+SUBJECT_SAMPLE_FACTORS           	s294	s294	Sample source:Blood serum | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=s294.zip
+SUBJECT_SAMPLE_FACTORS           	s299	s299	Sample source:Blood serum | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=s299.zip
+SUBJECT_SAMPLE_FACTORS           	s303	s303	Sample source:Blood serum | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=s303.zip
+SUBJECT_SAMPLE_FACTORS           	s313	s313	Sample source:Blood serum | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=s313.zip
+SUBJECT_SAMPLE_FACTORS           	s315	s315	Sample source:Blood serum | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=s315.zip
+SUBJECT_SAMPLE_FACTORS           	s318	s318	Sample source:Blood serum | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=s318.zip
+SUBJECT_SAMPLE_FACTORS           	s330	s330	Sample source:Blood serum | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=s330.zip
+SUBJECT_SAMPLE_FACTORS           	s336	s336	Sample source:Blood serum | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=s336.zip
+SUBJECT_SAMPLE_FACTORS           	s339	s339	Sample source:Blood serum | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=s339.zip
+SUBJECT_SAMPLE_FACTORS           	s345	s345	Sample source:Blood serum | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=s345.zip
+SUBJECT_SAMPLE_FACTORS           	245c	245t	Sample source:Interstitial fluid | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=245t.zip
+SUBJECT_SAMPLE_FACTORS           	248c	248t	Sample source:Interstitial fluid | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=248t.zip
+SUBJECT_SAMPLE_FACTORS           	249c	249t	Sample source:Interstitial fluid | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=249t.zip
+SUBJECT_SAMPLE_FACTORS           	250c	250t	Sample source:Interstitial fluid | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=250t.zip
+SUBJECT_SAMPLE_FACTORS           	252c	252t	Sample source:Interstitial fluid | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=252t.zip
+SUBJECT_SAMPLE_FACTORS           	253c	253t	Sample source:Interstitial fluid | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=253t.zip
+SUBJECT_SAMPLE_FACTORS           	257c	257t	Sample source:Interstitial fluid | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=257t.zip
+SUBJECT_SAMPLE_FACTORS           	258c	258t	Sample source:Interstitial fluid | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=258t.zip
+SUBJECT_SAMPLE_FACTORS           	259c	259t	Sample source:Interstitial fluid | Group:Lymphedema	Diseases=Lymphedema; RAW_FILE_NAME(Raw NMR file)=259t.zip
+#COLLECTION
+CO:COLLECTION_SUMMARY            	The investigations were conducted in accordance with the principles outlined in
+CO:COLLECTION_SUMMARY            	the Declaration of Helsinki 2008
+CO:COLLECTION_SUMMARY            	(https://www.wma.net/what-we-do/medical-ethics/declaration-of-helsinki/doh-oct2008/,
+CO:COLLECTION_SUMMARY            	accessed on 01.08.2024), which delineate ethical principles for medical research
+CO:COLLECTION_SUMMARY            	involving human subjects. Ethical approval was obtained from the International
+CO:COLLECTION_SUMMARY            	Tomography Center SB RAS ( ECITC-2020-12 from 16.12.2020) and the Research
+CO:COLLECTION_SUMMARY            	Institute of Clinical and Experimental Lymphology – Branch of the Institute of
+CO:COLLECTION_SUMMARY            	Cytology and Genetics SB RAS ( 159 from 20.07.2020). Written informed consent
+CO:COLLECTION_SUMMARY            	was obtained from all patients after a thorough explanation of the study's
+CO:COLLECTION_SUMMARY            	nature and potential consequences. No special permission from national or local
+CO:COLLECTION_SUMMARY            	authorities was required. Blood (n=22) and interstitial fluid (n=9) samples were
+CO:COLLECTION_SUMMARY            	collected from patients who had previously undergone breast cancer treatment and
+CO:COLLECTION_SUMMARY            	who subsequently developed and were diagnosed with BCRL (n=22, age 69.6 ± 3.4
+CO:COLLECTION_SUMMARY            	years). Control blood samples (n=12, age 63.7 ± 6.5 years) were collected from
+CO:COLLECTION_SUMMARY            	age-matched patients without diagnosed breast can-cer and without lymphedema.
+CO:COLLECTION_SUMMARY            	Peripheral blood was obtained from the ulnar vein in the morning after overnight
+CO:COLLECTION_SUMMARY            	fasting under aseptic conditions into a vacutainer containing a coagulation
+CO:COLLECTION_SUMMARY            	activator. Within 10-15 minutes of collection, the blood samples were
+CO:COLLECTION_SUMMARY            	centrifuged (3000×g, 10 min), and the plasma obtained was transferred into
+CO:COLLECTION_SUMMARY            	separate Eppendorf vials. We have developed a method for collecting interstitial
+CO:COLLECTION_SUMMARY            	fluid from the subcutaneous tissue of the affected area from the patients with
+CO:COLLECTION_SUMMARY            	limb lymphedema. For this purpose, an ultrasound examination of the affected
+CO:COLLECTION_SUMMARY            	limb was performed using a 5 MHz and 10 MHz linear array probe. Areas of
+CO:COLLECTION_SUMMARY            	interstitial fluid accumulation were identified and marked. At these areas, the
+CO:COLLECTION_SUMMARY            	skin was punctured with a 27G needle and the interstitial fluid that appeared at
+CO:COLLECTION_SUMMARY            	the puncture site was collected using a 22G plastic catheter and transferred
+CO:COLLECTION_SUMMARY            	into clean Eppendorf vials. The vials with biofluid samples were immediately
+CO:COLLECTION_SUMMARY            	frozen and stored at -70°C until analysis.
+CO:SAMPLE_TYPE                   	Blood serum; Interstitial fluid
+#TREATMENT
+TR:TREATMENT_SUMMARY             	Not applicable
+#SAMPLEPREP
+SP:SAMPLEPREP_SUMMARY            	Sample Preparation For the preparation of extracts from blood serum for
+SP:SAMPLEPREP_SUMMARY            	metabolomic measurements, we adhered to a standard protocol. Serum volume was
+SP:SAMPLEPREP_SUMMARY            	300 μl, ISF volume varied from 50 to 200 μl. Briefly, after thawing human
+SP:SAMPLEPREP_SUMMARY            	blood plasma, we removed the clot from the vial, thus obtaining blood serum.
+SP:SAMPLEPREP_SUMMARY            	Then, we added 300 μL of H2O, 600 μL of cold (-20 °C) methanol and 600 μL of
+SP:SAMPLEPREP_SUMMARY            	cold (-20 °C) chloroform to 300 µL of serum. The mixture was then stirred on a
+SP:SAMPLEPREP_SUMMARY            	shaker at +4 °C for 15 minutes, followed by incubation at -20 °C for 30
+SP:SAMPLEPREP_SUMMARY            	minutes. Subsequently, the mixture was centrifuged at 16,100×g for 30 minutes
+SP:SAMPLEPREP_SUMMARY            	at +4 °C. Upon centrifugation, the mixture separated into two immiscible
+SP:SAMPLEPREP_SUMMARY            	phases. The upper water-methanol phase was collected and vacuum dried overnight.
+SP:SAMPLEPREP_SUMMARY            	NMR Measurements The dried extracts were dissolved in 600 µL of D2O containing
+SP:SAMPLEPREP_SUMMARY            	20 µM of DSS (sodium 4,4-dimethyl-4-silapentane-1-sulfonic acid) as an internal
+SP:SAMPLEPREP_SUMMARY            	standard and 50 mM of deuterated phosphate buffer (pH 7.2). The 1H NMR
+SP:SAMPLEPREP_SUMMARY            	measurements were conducted at the Center of Collective Use "Mass Spectrometric
+SP:SAMPLEPREP_SUMMARY            	Investigations" SB RAS, using an AVANCE III HD 700 MHz NMR spectrometer (Bruker
+SP:SAMPLEPREP_SUMMARY            	BioSpin, Rheinstetten, Germany). NMR spectra for each sample were acquired in a
+SP:SAMPLEPREP_SUMMARY            	standard 5 mm glass NMR tube using a 5 mm TXI ATMA NMR probe. We used 70-degree
+SP:SAMPLEPREP_SUMMARY            	detection pulse (pulse sequence name zg) and summed 64 free induction decay
+SP:SAMPLEPREP_SUMMARY            	(FID) signals while maintaining the sample temperature at 25°C. For two ISF
+SP:SAMPLEPREP_SUMMARY            	samples with volumes below 100 µl, we collected 128 FIDs to improve the
+SP:SAMPLEPREP_SUMMARY            	signal-to-noise ratio. Prior to acquisition, low-power radiation was applied at
+SP:SAMPLEPREP_SUMMARY            	the water resonance frequency to presaturate the water signal. To allow for the
+SP:SAMPLEPREP_SUMMARY            	relaxation of all spins, a repetition time of 6 seconds was used between scans.
+SP:SAMPLEPREP_SUMMARY            	Identification and quantification of metabolites in NMR data Metabolite
+SP:SAMPLEPREP_SUMMARY            	identification was conducted by analyzing their NMR spectra, which were sourced
+SP:SAMPLEPREP_SUMMARY            	from literature, databases (HMDB, METLIN, BMRB, and SpectraBase), an in-house
+SP:SAMPLEPREP_SUMMARY            	NMR library (AMDB). Baseline processing, identification, and integration of
+SP:SAMPLEPREP_SUMMARY            	spectral NMR peaks (quantification) were performed using MestReNova v12.0
+SP:SAMPLEPREP_SUMMARY            	(Mestrelab Research, A Coruna, Spain). In instances where NMR signal assignment
+SP:SAMPLEPREP_SUMMARY            	was not straightforward, the identification of metabolites was verified by
+SP:SAMPLEPREP_SUMMARY            	spiking extracts with commercially available standard compounds. Despite these
+SP:SAMPLEPREP_SUMMARY            	efforts, several signals in the NMR spectra remained unassigned. The metabolite
+SP:SAMPLEPREP_SUMMARY            	concentrations in samples were determined in µM by integrating NMR signals
+SP:SAMPLEPREP_SUMMARY            	relative to the internal standard DSS, and then normalized to the biofluid
+SP:SAMPLEPREP_SUMMARY            	volume. On average, 60-80 compounds were identified in samples. However,
+SP:SAMPLEPREP_SUMMARY            	quantifying some compounds was unreliable due to weak signals or overlapping
+SP:SAMPLEPREP_SUMMARY            	with other signals. The final table contains only 51 reliably identified and
+SP:SAMPLEPREP_SUMMARY            	quantified metabolites. The raw data could contain more information on as yet
+SP:SAMPLEPREP_SUMMARY            	unidentified metabolites.
+#ANALYSIS
+AN:LABORATORY_NAME               	Laboratory of proteomics and metabolomics
+#NMR
+NM:INSTRUMENT_NAME               	AVANCE III HD 700 MHz NMR spectrometer (Bruker BioSpin)
+NM:INSTRUMENT_TYPE               	FT-NMR
+NM:NMR_EXPERIMENT_TYPE           	1D-1H
+NM:SPECTROMETER_FREQUENCY        	700 MHz
+NM:NMR_PROBE                     	5 mm TXI ATMA
+NM:NMR_SOLVENT                   	50 mM of deuterated phosphate buffer (pH 7.2)
+NM:NMR_TUBE_SIZE                 	5 mm
+NM:PULSE_SEQUENCE                	zg
+NM:WATER_SUPPRESSION             	presat
+NM:TEMPERATURE                   	25
+NM:NUMBER_OF_SCANS               	64
+#NMR_METABOLITE_DATA
+NMR_METABOLITE_DATA:UNITS	uM
+NMR_METABOLITE_DATA_START
+Samples	K1	K2	K3	K4	K5	K7	K8	K9	K10	K11	K12	K13	245c	248c	249c	250c	252c	253c	257c	258c	259c	s251	s253	s293	s294	s299	s303	s313	s315	s318	s330	s336	s339	s345	245t	248t	249t	250t	252t	253t	257t	258t	259t
+Factors	Sample source:Blood serum | Group:Control	Sample source:Blood serum | Group:Control	Sample source:Blood serum | Group:Control	Sample source:Blood serum | Group:Control	Sample source:Blood serum | Group:Control	Sample source:Blood serum | Group:Control	Sample source:Blood serum | Group:Control	Sample source:Blood serum | Group:Control	Sample source:Blood serum | Group:Control	Sample source:Blood serum | Group:Control	Sample source:Blood serum | Group:Control	Sample source:Blood serum | Group:Control	Sample source:Blood serum | Group:Lymphedema	Sample source:Blood serum | Group:Lymphedema	Sample source:Blood serum | Group:Lymphedema	Sample source:Blood serum | Group:Lymphedema	Sample source:Blood serum | Group:Lymphedema	Sample source:Blood serum | Group:Lymphedema	Sample source:Blood serum | Group:Lymphedema	Sample source:Blood serum | Group:Lymphedema	Sample source:Blood serum | Group:Lymphedema	Sample source:Blood serum | Group:Lymphedema	Sample source:Blood serum | Group:Lymphedema	Sample source:Blood serum | Group:Lymphedema	Sample source:Blood serum | Group:Lymphedema	Sample source:Blood serum | Group:Lymphedema	Sample source:Blood serum | Group:Lymphedema	Sample source:Blood serum | Group:Lymphedema	Sample source:Blood serum | Group:Lymphedema	Sample source:Blood serum | Group:Lymphedema	Sample source:Blood serum | Group:Lymphedema	Sample source:Blood serum | Group:Lymphedema	Sample source:Blood serum | Group:Lymphedema	Sample source:Blood serum | Group:Lymphedema	Sample source:Interstitial fluid | Group:Lymphedema	Sample source:Interstitial fluid | Group:Lymphedema	Sample source:Interstitial fluid | Group:Lymphedema	Sample source:Interstitial fluid | Group:Lymphedema	Sample source:Interstitial fluid | Group:Lymphedema	Sample source:Interstitial fluid | Group:Lymphedema	Sample source:Interstitial fluid | Group:Lymphedema	Sample source:Interstitial fluid | Group:Lymphedema	Sample source:Interstitial fluid | Group:Lymphedema
+2S-Aminobutyric acid	33.3	33.8	33	27	22.3	24.1	30.9	25.5	26.6	30	24.3	18	18.2	20.8	26.1	11.8	40	33	20.5	34.2	19.4	42.3	22.5	14.9	29.8	24.2	27.5	29.4	21.1	47.5	16.6	15.8	42.2	36.7	9.1	24.8	24.4	10.7	36.9	21.1	17	31	21.9
+2-Hydroxy-3-methylbutyric acid	6.7	15.4	6.7	3.5	14.9	10.2	9.8	4.7	13.7	5.9	5.8	7.1	4.6	9.1	10.4	5.8	6.9	10.9	8.6	7	5.9	6.8	11.6	8.3	16.1	5.1	10.6	7.9	12.7	8.4	13.2	10.7	13.2	10.6	0.6	4.1	8.4	1.5	4.9	9.3	4.9	1.4	4.7
+2-Hydroxy-3-methyl-pentanoic acid	26.7	25.4	21.9	25.5	21.9	25.7	29.4	22.2	24.9	26	22.9	26.4	14.9	21.4	21.3	13.8	47.2	12.4	44.5	18.2	15.8	60	18.6	17.8	19.7	10.9	16.6	79.5	17	34.8	35.5	7.6	26.7	24.6	13.2	10.1	11.9	14.4	31.4	14.5	21.2	22.9	9.1
+2-Hydroxybutyric acid	100.2	82.7	53.6	47.3	65.7	88.2	64.5	43.9	50	69.5	70.5	36.7	42.1	50.7	105.8	38.1	68.8	89.9	63.1	70.7	57.9	91.8	87.6	61.2	156.6	79.2	108.5	104.4	78.7	94	108.5	64.3	134.3	89.6	31.2	44.4	85.9	22.8	53.9	77.1	38.6	42.7	39.8
+Ketoisovaleric acid	1.1	1	1.5	1	2.6	1.8	1.7	0.3	1.8	1.8	0.3	0.9	9.5	10.7	14.7	7	8.7	11.1	10.1	13.6	9.9	17.1	18	12.1	19.1	14.3	15.4	15.7	21	19.2	21.3	20.4	21.9	16.3	6.1	9.4	8.7	4	6	10	6.9	8.3	10.4
+3-Hydroxybutyric acid	232.5	295.2	212	138.8	38.2	805.9	100.4	87.9	416.6	95.7	279.5	59.6	38.2	74.8	450.2	26.3	323.2	65.9	232.7	131.1	108.2	362.9	160.4	305.5	72.3	202.2	118.9	52.7	149.3	46.6	73.2	107.9	57.1	140.1	47.8	70.1	264.3	33.1	257.5	110.4	27.2	40.9	58.8
+3-Hydroxyisobutyric acid	30.9	39.1	33.1	31.3	36.3	24.5	30	26	36.7	37.4	26.9	28.4	4.1	5	9.2	4.6	5.6	7.8	7.7	5.2	5.1	35.2	29.8	24.9	39.2	24.8	30.6	32.3	31	32.5	47.7	28.7	45.4	30	18.5	8.2	14.2	27.2	20.7	13.3	8.4	13.4	21.2
+3-Methyl-2-oxovaleric acid	7.7	3.1	6	3.8	6.4	8.8	5.7	6.4	4.3	8.7	7.3	4.3	14.8	19	25.8	12.9	19.5	19.5	16.9	22.2	18.9	33.8	24.7	20.5	37.4	21.1	26.7	29.3	21	31.4	37.6	25.8	42.6	31.3	9.9	11.9	14.8	8.7	7.4	14.8	12	19.8	14.7
+Acetic acid	248.4	240.5	242.2	262	355	227.5	320.1	250.2	253	284.6	258.9	243.1	50.1	58	53.4	50.4	55.8	48.8	59.9	74.1	57.5	368.2	411.4	366.7	396.4	354.6	515.1	329.1	356.8	343.4	414	302.8	305.8	310.2	45.7	60.5	48.4	45.7	56.7	53.3	49.2	64.2	63
+CAR 2:0	14.8	18.2	12.3	13.2	7.2	12.5	9.5	7.8	16.8	13.8	10.2	10.4	8.8	11.3	12.7	11.2	14.3	15.2	16.1	9.7	10.3	13.3	9.1	4.8	12.7	8	3.6	9.6	5	12.7	4	18.7	11.3	9.1	9.3	11.2	10.9	9.7	12.6	13	9.7	7.3	10.7
+Alanine	422.3	432.8	318.1	327.8	413.8	312	522.7	382.3	435.8	604.4	320.5	358.8	301.5	481.9	485.6	465.2	400.7	393.3	396.9	401.9	336.8	458.7	551.5	456.9	811.6	461.4	498.5	912.1	632.2	924.9	705.6	604	817.6	539.9	271.7	413.4	478.3	459	486.6	301.4	531.8	354.3	379.7
+Vitamin C	2	1.6	3.8	5.4	1	3.2	1.6	1	5.8	0	4.7	5	4.2	4.7	0.6	3.5	3.2	5.8	6.7	13.2	18.4	3.2	6.8	2.7	9.9	2	5	7.1	4.8	8.3	9.1	4.2	7.4	4.1	4.8	3.4	1	0.4	1.3	0	5.5	1.1	13.9
+Asparagine	33.7	45	50.9	54.7	38.5	39.8	57	46.4	52.8	46.5	49.9	47.8	37.3	46.7	29.6	20.9	38.8	40.8	48.8	63.8	40.6	61	53.2	29.6	73.6	45.1	64.3	97.4	68.2	137.1	62.3	104.1	55.5	49.1	32.1	47.9	15.8	32.1	55.6	26.4	56.1	51	36.4
+Betaine	20.2	27.4	24	28.9	22.8	45.2	38.4	31.3	54.2	44	49.5	35.2	19.5	35.1	17.8	31.7	45.7	49	15.8	25.8	38.9	113.1	49.1	13.5	46.6	33.1	59.9	65.1	29.5	60.4	49.8	49.3	57	54	16.4	32.2	15.2	22.4	46.5	38.1	14.3	19.4	40.7
+Choline	9.1	10.6	9.7	9	11	7.9	10	8	16.2	14.2	9.8	10.6	6.8	11.7	9.1	8	14	14.5	9.3	7.6	10.5	19.6	18	9.8	16.2	9.1	18.5	27.2	21.4	22.4	24.5	26	16.2	18.7	6	11.9	9.1	10.6	15.6	13.7	10.8	7.1	14.7
+Citric acid	140.2	152.4	150.8	134.7	74.7	134.5	116.3	93.5	158.9	149.1	141.6	128.5	100.4	159.2	162.6	105.1	133.2	148.6	137.3	104.4	104.5	203.3	155.5	130.8	145.4	177.4	211.4	201.8	165.7	247.7	205.9	205.9	172.3	161	122.5	136	152	104.4	165.3	141.6	99.5	75.3	115.8
+Creatine	59.9	26.5	72.2	80.4	35.9	25.6	60.1	85.4	34.5	57.7	55.2	37.9	51.5	74	100.8	62.1	91.3	91.6	68.9	98.9	84.6	113.9	63.2	70.4	160.3	83.9	99.3	125.5	99.3	136.2	108.6	122.8	142.3	132.4	53.4	79.9	93	54.6	101.7	69	87.1	90.9	103.9
+Creatinine	82.7	55.5	69.8	98.6	108.3	68.6	62.7	61.6	76.2	73.3	54.8	61.4	66.7	85.6	61.2	86	64.2	91.2	76	74.1	76.5	122.9	124.8	94.9	131.2	99.1	76.1	155.4	85.3	150.8	106.8	141.5	103.1	116	66.3	80.5	58.8	62.9	62.6	72.4	77.3	55.1	76.3
+Dimethylamine	5.3	7.2	1.6	1	5.3	5.8	6.6	1.6	7.9	5.5	8.8	0.5	3.2	1.6	2.4	6.3	5	2.1	1.9	5.1	1.9	2.6	2.4	5.6	1.8	8.5	1.4	2.4	1.3	7.3	1.9	1.1	1.8	8.9	1.4	0.6	2.7	3.8	4.3	1.7	0.8	3.8	1.5
+Dimethylglycine	2.2	4.9	2.2	3.2	2.9	3.3	2.7	2	3	3.2	3.2	1.8	2.2	3.2	3.2	2	6.8	3.8	2.3	2.7	2.6	6	10.7	1.7	3.3	3.5	4.6	3.1	4.3	5.8	4.6	4.9	5.5	4.3	3.7	2.9	2.6	2.3	7.2	5.2	2.7	3.2	4.4
+Dimethyl sulfone	15.7	8.5	9	9.7	4.6	9.3	7.7	8.1	14.9	13.9	10.4	8	5	8.8	5.7	4.3	7	4.9	8.8	4	7	12.1	12	13.4	20.6	12	15.8	16.9	12.8	15.2	13.8	8.2	12	11.7	3.8	10.9	4.9	3.3	6.9	5.1	10.6	4	8.1
+Formic acid	30.4	29.4	31.4	33	29.7	32.9	33.4	36.1	37.6	31.2	34.6	32.5	28.1	35.9	31.9	30.6	36.6	31.5	31.3	31	28.5	256.4	288	160	529.6	282.9	296.3	406.9	353.5	412	223.2	484.5	269.6	425.5	23	36.2	39.5	37	44.5	30	41.9	35.4	36.9
+Glucose	6205.9	4455.8	4000.3	5618.5	5563.7	4293.6	5027.8	4628.2	5360.5	6122.7	4768.6	4758.8	4525.6	4985.3	6877.1	5018.6	4416.9	7046.2	5221.3	5949	5101	6320.7	8141.3	5760.9	13202.4	5880.6	5542.2	7458.7	6112.3	8653.2	9953.9	7589.8	11296.2	6280.4	4386.2	5315.3	6739.4	4109.8	4566.5	4950.9	5648.9	5905.6	6232.9
+Glutamine	424.5	594.4	457.9	586.5	343.9	463.2	685.8	591.9	665.3	544	497.4	556.5	466.6	566.6	381.7	588.9	486.3	510.5	461.7	507.3	578.8	988.7	663.1	503.8	919.2	437.2	706.4	1091.4	424	832.9	447.2	884.8	866	884.1	495.7	574.2	358	445.5	502.5	437.1	433.5	431.3	575.9
+Glycerol	158.6	194.7	159	136.5	113.9	117.6	100.1	93.3	117.5	164	132	156	143.5	162.1	341.6	181.5	134.4	254.7	183.4	117.7	152	274.1	207.6	227.7	212.6	304.9	263.1	218	211.1	98.7	179.8	191	78.3	154.2	102	135.5	233	242.2	232.7	221	142.2	161.2	140
+sn-Glycero-3-phosphocholine	40.1	45.8	42	54.8	44	31.8	57.1	41	67.1	61.9	33.5	46.1	36.5	51.5	29	44.4	38	40.9	36.4	34.2	40.7	102.7	92.2	45.4	73	66.3	108.8	83.9	49.6	72.9	91.8	72.5	72.3	68.1	37.1	55	29.4	39.5	42.3	39.7	41.3	30.8	46.3
+Glycine	119.2	233.5	466.1	309.7	124.1	212.8	299.2	266	241.3	303.4	309.5	204.1	266	278.2	115.8	408.3	255	178.7	181.6	176.7	177.4	300.8	305.4	196.6	449.4	371.7	282.2	393.6	200.4	469.2	276.1	813.7	202.9	463	320.7	264.9	125.1	344.6	286.2	166.8	209.4	186.3	187
+Histidine	56.4	81.5	55.3	74.4	34.1	62.9	76.1	76	77.2	76.2	65.5	66.5	53.7	70.4	60.4	68.9	63.1	78.1	108.8	89.1	69.1	111.5	105.8	53.5	153.5	91.8	46.3	145.1	112.6	109.3	62.6	125.8	138	114	74.9	67.8	68.6	48.6	59.7	70.5	84.6	101.1	72.5
+Inosine	7.7	1.2	5.1	6	7	0.3	14.1	12.6	11.2	0	9.2	5.1	4.7	11.5	3.3	9.2	1.1	6.3	3.7	8.3	6.9	10.9	9	4.1	8.1	9.5	0.1	1.7	5.9	0	18.1	4	14.1	10.9	0	0	0	0	0	0	0	0	0
+Isobutyric acid	11.6	6.8	6.1	6	8	7.2	5.4	3.9	5.8	9.1	4.7	2.8	8.6	9.5	15.3	5.1	8.4	9	7.7	13.1	5	14.7	10	5.7	13.1	9.2	11.1	11.8	11.7	17.8	11.7	7.1	12.4	15	6.4	8.2	13	8.9	6.7	10	8.4	7.9	7.5
+Isoleucine	60.9	75.3	54.4	50.2	65.7	49.9	77.4	54.2	66.2	66.3	58.3	55.7	50.4	77.8	80.2	55.7	62.5	92.3	71.2	75.6	77	106.9	85.5	55.2	103.1	65.6	78.8	154.2	92.7	89.8	123.9	72.3	115	117	47	69.6	72	39	64.1	73	90.6	76.3	74.4
+Isovaleric acid	18.7	22.3	16.2	18.9	17.8	14.5	16.4	17.3	25.4	23.2	13	21	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Ketoleucine	4.3	3	3.4	4.1	3.5	5.4	6.1	4.5	4.5	3.2	5.7	6.3	24.1	28.8	32.6	25.4	29.5	37.7	31.7	38.2	33.2	45.3	26.2	21.8	45.3	30.5	39.3	31.5	28.5	37	41.4	37.9	53.4	33.9	16.4	15.7	13.2	13.6	15.9	15	11.4	22.5	19.7
+Lactic acid	3259.5	2881.3	2023.5	2743.7	3862	2202.7	3428.6	2286.2	2359.1	3454.3	2457.4	1445.7	1175.9	2925.8	3542.2	2084.2	1794	1878.3	1648.7	1293.4	1749	2916.7	5687.5	3105.7	4219.8	3040.5	5336.8	5061.8	3439.7	5325.7	5024.6	6517.8	5272.1	3008.4	874.8	1136.2	2355.6	1268.7	1833.6	1019.9	1704.3	887.5	1220.8
+Leucine	125.3	169.4	115.8	104.1	147.4	98.3	154	111.4	148.6	137	107.5	114.2	107.3	141	142.8	115.8	127.1	184.1	134.8	151.9	148.9	201.2	164.8	121.4	227.2	151.3	201.3	260.3	192.2	197.2	240.9	173.1	236.6	198.9	122.8	147.6	130.5	98.7	145.5	170.2	148.9	160.6	163.4
+Lysine	157.6	178.2	170.8	183	137.6	116.6	215.9	174.5	168.3	226.7	115.1	178	141.4	174.2	160.6	173.6	184.1	211.1	159.6	207.9	203.2	264.3	166.6	103.1	235.3	160.1	127.8	298.5	208.2	215	141	188.8	246	191.9	140	160.4	138.3	148.1	202.4	162.4	165.1	173.4	217.3
+Mannose	70.4	54.3	54.4	64.6	109.8	62.3	46	55.4	76.5	60.4	50.1	63	54.3	58.2	77.3	46.9	54.2	55.3	77.3	76.7	87.2	91.3	104.8	53.6	89.1	52.6	96.4	70.7	64.4	62.9	87.2	62.4	87.5	76.6	59	64.4	70.6	37.8	53.1	43.8	46.5	59.3	85
+Myo-inositol	67.2	37	38.8	45	43.5	44.9	35.9	30.4	68.4	36	35.2	42.1	27.1	30.5	32	36.3	37.2	36.3	27.8	25.6	32.8	59.2	53.7	52	52	85.3	46	63	53	62.7	49.4	51.8	50.1	38	13.4	44.3	23.2	42.1	27.8	45.1	43.8	29.7	57.9
+Ornithine	54.9	92.2	73.7	81.1	73.8	80.3	87.9	69.9	93.8	116.6	75.7	77.3	66.4	72.4	43.7	70.6	70.4	91.8	43.3	67.4	74.4	81.8	76.6	35.9	52.7	59.1	45.8	150.1	62	93.8	41.8	125.7	65.8	100.6	65.9	58.1	37.7	57.1	68	46.4	46.4	40.6	74.2
+Phenylalanine	52.4	106	58.3	71.8	90.1	68	77.8	56.8	74.5	90.6	64.8	72	51.1	76.3	71.4	62.5	77.2	81.1	78.7	70.6	66.9	119.8	122.9	77.5	125.4	88.1	125.7	180.2	107	141.1	117.6	148.4	119.8	112.9	35.5	66.7	62.7	54.4	73.3	49.4	74	64.4	74.7
+Proline	153	115.7	116.8	179.8	106.1	110.4	141.6	135.6	133.3	143.1	96	105.2	122	310.8	251.4	284.7	239.6	202.4	172.5	205.6	222.2	265.4	302.3	139.4	240.2	166.8	310.3	345.7	238.3	371.7	293.2	208.1	265.4	309.5	122.9	241.1	202.6	217.6	182.8	138.5	154.8	187.8	196.8
+Propylene glycol	5.2	0.5	2.6	0.5	12.7	1.2	4	7.1	3	2	2.9	1.7	5.9	9.4	4.9	2.6	5.2	6.1	7.3	5.8	6.7	8.7	7.5	3.9	3.7	8.2	3.9	9.9	10.9	7.4	6.8	5.4	1.3	4.7	3.9	10.2	4.5	6.2	17.4	8.4	8.6	6.9	1.9
+Pyroglutamic acid	0	0	19.1	18.1	10.3	0	8.3	32.1	18.7	10.7	17.8	0	0	0	0	0	0	0	0	0	0	60.3	326.3	105.3	2.7	412	152.2	148.7	305.8	44.4	256.7	67.9	18.5	41.1	43.2	12.5	50.2	0	0	8.6	0	0	0
+Pyruvic acid	3.1	2.5	2.1	0.8	4	1.4	2.3	2.9	3.1	2.3	1.4	0.6	33.4	51	69.7	36.6	31.9	26.4	41.2	20	18.1	49.6	69.5	34.9	40.8	69.1	21.1	34.8	56.9	113	74.1	55.3	90	22.8	23.9	39.6	67.8	29.8	34.8	24.5	53.7	30.2	46.5
+Serine	164	260.9	297.9	257	252	207.3	276.4	242.3	283.8	271.9	246.7	209.7	203.5	229.2	191.6	223	258.5	233.4	155.2	277.6	250.2	362.7	303.6	236.6	317.6	298.6	351.1	428.3	297.9	426.6	319.5	444	347.3	380.7	222.7	196	166	177.6	283.8	179.6	172	258.7	242.5
+Threonine	73.1	124	141	111.1	101.4	79.1	114.2	112.3	112.7	92.8	98.8	88.6	81.8	76	102.1	91.8	141.9	101.3	130.8	144.6	134	162.8	160	132.3	130	106.2	162.8	198.6	196.8	208.2	124.2	174.8	122.6	159.7	124.9	101.8	91.9	55.4	160.4	73	126	123.9	109
+Tryptophan	9.3	29.5	23.6	34.8	30	23	28.1	27.6	33.9	38.2	20	26.8	41.1	52.2	37.8	53.6	45.2	43.5	45.3	55.5	48.9	68.4	63.2	26.9	75.7	34.8	65	97.3	47.4	88.9	83.1	56.1	88.1	76.9	46.2	20.1	21.7	27	31.6	21.2	11.8	43	30.5
+Tyrosine	42.9	81.2	45.7	57.5	73.5	53.9	68.8	48.1	93.9	64.3	66.8	48.6	51.6	80.3	56.8	56.9	65.8	76.4	54.7	55.4	73.4	73.9	74.2	52.8	101.9	79.6	70.7	156.9	72.6	165.1	106.9	93.2	105.9	111	66.1	68.5	54.5	64.9	74.5	76.6	63.8	53.2	81.3
+Valine	238.1	308.1	212.9	194.6	252.8	176.5	284.3	204.4	231.5	278.3	197.7	209.7	221.6	277.2	271.8	197.2	204.2	334.9	235.1	273.5	278.2	308.3	314.6	186.9	379.5	240.2	305.8	447.9	335.6	343.3	339.4	280.8	374.2	349.6	212.1	269.9	252.8	166.7	210.1	278.2	220.1	251.4	287.7
+NMR_METABOLITE_DATA_END
+#METABOLITES
+METABOLITES_START
+metabolite_name	HMDB	PubChem	ChEBI	KEGG	METLIN	SMILES
+2S-Aminobutyric acid	HMDB0000452	80283	35619	C02356	12	CC[C@H](N)C(O)=O
+2-Hydroxy-3-methylbutyric acid	HMDB0000407	99823	60645	NA	5396	CC(C)C(O)C(O)=O
+2-Hydroxy-3-methyl-pentanoic acid	HMDB0000317	10796774	89228	NA	5306	CC[C@@H](C)[C@@H](O)C(O)=O
+2-Hydroxybutyric acid	HMDB0000008	440864	50613	C05984	3783	CC[C@H](O)C(O)=O
+Ketoisovaleric acid	HMDB0000019	49	16530	C00141	5091	CC(C)C(=O)C(O)=O
+3-Hydroxybutyric acid	HMDB0000011	441	17066	C01089	NA	C[C@@H](O)CC(O)=O
+3-Hydroxyisobutyric acid	HMDB0000023	440873	37373	C06001	483	C[C@@H](CO)C(O)=O
+3-Methyl-2-oxovaleric acid	HMDB0000491	439286	15614	C00671	5478	CC[C@H](C)C(=O)C(O)=O
+Acetic acid	HMDB0000042	176	15366	C00033	3206	CC(O)=O
+CAR 2:0	HMDB0000201	7045767	57589	C02571	5213	CC(=O)O[C@H](CC(O)=O)C[N+](C)(C)C
+Alanine	HMDB0000161	5950	16449	C01401	11	CC(N)C(O)=O
+Vitamin C	HMDB0000044	54670067	29073	C00072	3753	[H][C@@]1(OC(=O)C(O)=C1O)[C@@H](O)CO
+Asparagine	HMDB0000168	6267	17196	C00152	14	N[C@@H](CC(N)=O)C(O)=O
+Betaine	HMDB0000043	247	41139	C00719	287	C[N+](C)(C)CC(O)=O
+Choline	HMDB0000097	305	15354	C00114	56	C[N+](C)(C)CCO
+Citric acid	HMDB0000094	311	30769	C00158	124	OC(=O)CC(O)(CC(O)=O)C(O)=O
+Creatine	HMDB0000064	586	16919	C00300	7	CN(CC(O)=O)C(N)=N
+Creatinine	HMDB0000562	588	16737	C00791	8	CN1CC(=O)NC1=N
+Dimethylamine	HMDB0000087	674	17170	C00543	3758	CNC
+Dimethylglycine	HMDB0000092	673	17724	C01026	277	CN(C)CC(O)=O
+Dimethyl sulfone	HMDB0004983	6213	9349	C11142	7236	CS(C)(=O)=O
+Formic acid	HMDB0000142	284	30751	C00058	3202	OC=O
+Glucose	HMDB0000122	5793	15903	C00031	133	OC[C@H]1O[C@@H](O)[C@H](O)[C@@H](O)[C@@H]1O
+Glutamine	HMDB0000641	5961	18050	C00064	5614	N[C@@H](CCC(N)=O)C(O)=O
+Glycerol	HMDB0000131	753	17754	C00116	105	OCC(O)CO
+sn-Glycero-3-phosphocholine	HMDB0000086	657272	16870	C00670	370	C[N+](C)(C)CCOP([O-])(=O)OC[C@H](O)CO
+Glycine	HMDB0000123	750	15428	C00037	20	NCC(O)=O
+Histidine	HMDB0000177	6274	15971	C00135	21	N[C@@H](CC1=CN=CN1)C(O)=O
+Inosine	HMDB0000195	6021	17596	C00294	84	OC[C@H]1O[C@H]([C@H](O)[C@@H]1O)N1C=NC2=C(O)N=CN=C12
+Isobutyric acid	HMDB0001873	6590	16135	C02632	106	CC(C)C(O)=O
+Isoleucine	HMDB0000172	6306	17191	C00407	5193	CC[C@H](C)[C@H](N)C(O)=O
+Isovaleric acid	HMDB0000718	10430	28484	C08262	109	CC(C)CC(O)=O
+Ketoleucine	HMDB0000695	70	48430	C00233	5663	CC(C)CC(=O)C(O)=O
+Lactic acid	HMDB0000190	107689	422	C00186	5205	C[C@H](O)C(O)=O
+Leucine	HMDB0000687	6106	15603	C00123	24	CC(C)C[C@H](N)C(O)=O
+Lysine	HMDB0000182	5962	18019	C00047	5200	NCCCC[C@H](N)C(O)=O
+Mannose	HMDB0000169	185698	28729	C00159	NA	OC[C@H]1O[C@H](O)[C@@H](O)[C@@H](O)[C@@H]1O
+Myo-inositol	HMDB0000211	NA	17268	C00137	5221	O[C@H]1[C@H](O)[C@@H](O)[C@H](O)[C@H](O)[C@@H]1O
+Ornithine	HMDB0000214	6262	15729	C00077	27	NCCC[C@H](N)C(O)=O
+Phenylalanine	HMDB0000159	6140	17295	C00079	28	N[C@@H](CC1=CC=CC=C1)C(O)=O
+Proline	HMDB0000162	145742	17203	C00148	29	OC(=O)[C@@H]1CCCN1
+Propylene glycol	HMDB0001881	259994	28972	C00583	3220	C[C@@H](O)CO
+Pyroglutamic acid	HMDB0000267	7405	18183	C01879	3251	OC(=O)[C@@H]1CCC(=O)N1
+Pyruvic acid	HMDB0000243	1060	32816	C00022	117	CC(=O)C(O)=O
+Serine	HMDB0000187	5951	17115	C00065	5203	N[C@@H](CO)C(O)=O
+Threonine	HMDB0000167	6288	16857	C00188	32	C[C@@H](O)[C@H](N)C(O)=O
+Tryptophan	HMDB0000929	6305	16828	C00078	5879	N[C@@H](CC1=CNC2=C1C=CC=C2)C(O)=O
+Tyrosine	HMDB0000158	6057	17895	C00082	34	N[C@@H](CC1=CC=C(O)C=C1)C(O)=O
+Valine	HMDB0000883	6287	16414	C00183	5842	CC(C)[C@H](N)C(O)=O
+METABOLITES_END
+#END

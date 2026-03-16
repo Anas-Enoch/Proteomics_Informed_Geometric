@@ -41,6 +41,6 @@ Serum metabolomics dataset from breast cancer-related lymphedema patients and co
 
 File included in this repository:
 
-ST003506_AN005756.txt
+Table/ST003506_AN005756.txt
 
 This dataset is used for the proof-of-concept classification experiment described in the manuscript.

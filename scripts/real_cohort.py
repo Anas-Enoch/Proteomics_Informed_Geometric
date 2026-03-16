@@ -12,9 +12,10 @@ import matplotlib.pyplot as plt
 import cobra
 from scipy import sparse
 from scipy.sparse.linalg import eigsh
-from sklearn.model_selection import StratifiedShuffleSplit
+from sklearn.model_selection import RepeatedStratifiedKFold, StratifiedKFold
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
+from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import roc_auc_score, accuracy_score
 
@@ -242,7 +243,11 @@ def map_workbench_to_model(met_name: str, met_ann_row: pd.Series, name_to_ids: d
 # -------------------------
 # Operator construction
 # -------------------------
-
+# NOTE:
+# This function constructs the unweighted stoichiometric metabolite Laplacian
+# Delta_M = S S^T, corresponding to W_R = I.
+# Proteomics-informed operator construction is evaluated separately in the
+# masking, robustness, and separability analyses described in the manuscript.
 
 def build_metabolite_laplacian(model: cobra.Model):
     # Ask COBRApy for a scipy sparse matrix (version-safe)
@@ -290,7 +295,41 @@ def spectral_embedding(L: sparse.spmatrix, k: int, seed: int = 0):
 
     return vals, vecs
 
+def permutation_test_auc(X_raw, y, U, n_perm=1000, n_splits=5, random_state=42):
+    rng = np.random.default_rng(random_state)
 
+    def cv_auc(labels):
+        skf = StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=random_state)
+        fold_aucs = []
+
+        for tr, te in skf.split(X_raw, labels):
+            imputer = SimpleImputer(strategy="mean")
+            X_tr_raw = imputer.fit_transform(X_raw[tr])
+            X_te_raw = imputer.transform(X_raw[te])
+
+            X_tr = X_tr_raw @ U
+            X_te = X_te_raw @ U
+
+            pipe = Pipeline([
+                ("scaler", StandardScaler()),
+                ("lr", LogisticRegression(max_iter=5000, solver="lbfgs"))
+            ])
+
+            pipe.fit(X_tr, labels[tr])
+            prob = pipe.predict_proba(X_te)[:, 1]
+            fold_aucs.append(roc_auc_score(labels[te], prob))
+
+        return np.mean(fold_aucs)
+
+    observed_auc = cv_auc(y)
+
+    perm_aucs = np.array([
+        cv_auc(rng.permutation(y))
+        for _ in range(n_perm)
+    ])
+
+    p_value = (np.sum(perm_aucs >= observed_auc) + 1) / (n_perm + 1)
+    return observed_auc, perm_aucs, p_value
 # -------------------------
 # Main experiment
 # -------------------------
@@ -357,28 +396,35 @@ def main():
 
     # Build sample features by projecting metabolite concentrations onto eigenvectors
     X_raw = df.loc[wb_mets].T.values  # shape: (#samples, #mets)
-    # impute NaNs with column means (per metabolite)
-    col_means = np.nanmean(X_raw, axis=0)
-    inds = np.where(np.isnan(X_raw))
-    X_raw[inds] = np.take(col_means, inds[1])
+    
 
-    X = X_raw @ U  # (#samples, k)
-
-    # repeated stratified splits
-    rng = np.random.RandomState(args.seed)
-    splitter = StratifiedShuffleSplit(n_splits=args.repeats, test_size=0.3, random_state=args.seed)
+        # repeated stratified K-fold cross-validation
+    rskf = RepeatedStratifiedKFold(
+        n_splits=5,
+        n_repeats=10,
+        random_state=args.seed
+    )
 
     aucs = []
     accs = []
 
-    clf = Pipeline([
-        ("scaler", StandardScaler()),
-        ("lr", LogisticRegression(max_iter=5000, solver="lbfgs"))
-    ])
+    for tr, te in rskf.split(X_raw, y):
+        # fold-specific imputation
+        imputer = SimpleImputer(strategy="mean")
+        X_tr_raw = imputer.fit_transform(X_raw[tr])
+        X_te_raw = imputer.transform(X_raw[te])
 
-    for tr, te in splitter.split(X, y):
-        clf.fit(X[tr], y[tr])
-        prob = clf.predict_proba(X[te])[:, 1]
+        # project into the fixed operator-derived spectral basis
+        X_tr = X_tr_raw @ U
+        X_te = X_te_raw @ U
+
+        pipe = Pipeline([
+            ("scaler", StandardScaler()),
+            ("lr", LogisticRegression(max_iter=5000, solver="lbfgs"))
+        ])
+
+        pipe.fit(X_tr, y[tr])
+        prob = pipe.predict_proba(X_te)[:, 1]
         pred = (prob >= 0.5).astype(int)
 
         aucs.append(roc_auc_score(y[te], prob))
@@ -390,9 +436,15 @@ def main():
     print(f"AUROC: mean={aucs.mean():.3f} ± {aucs.std():.3f}")
     print(f"ACC:   mean={accs.mean():.3f} ± {accs.std():.3f}")
 
-    # plot figure
+    observed_auc, perm_aucs, perm_p = permutation_test_auc(
+        X_raw, y, U, n_perm=1000, n_splits=5, random_state=args.seed
+    )
+
+    print(f"Permutation test observed AUC: {observed_auc:.3f}")
+    print(f"Permutation p-value: {perm_p:.4f}")
+    print(f"Permutation null mean ± sd: {perm_aucs.mean():.3f} ± {perm_aucs.std():.3f}")    # plot figure
     plt.figure(figsize=(7.2, 3.6))
-    plt.boxplot([aucs, accs], labels=["AUROC", "Accuracy"])
+    plt.boxplot([aucs, accs], tick_labels=["AUROC", "Accuracy"])
     plt.ylim(0.0, 1.0)
     plt.title("Real-cohort classification using operator spectral embeddings (ST003506)")
     plt.ylabel("Score")
