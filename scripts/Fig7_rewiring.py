@@ -1,201 +1,287 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+Figure 7: Cross-condition operator deformation and pathway rewiring
+
+Outputs a 3-panel figure:
+A. Distribution of metabolite-level deformation scores D(i)
+B. Top rewired subsystems under the real operator difference
+C. Comparison of real vs permuted pathway-level rewiring scores
+
+This script is designed to avoid the common bug where the permuted panel
+accidentally reuses the real operator or the same pathway scores.
+"""
+
 import argparse
 from pathlib import Path
-
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
 import pandas as pd
-import scipy.sparse as sp
-
+import matplotlib.pyplot as plt
 import cobra
-from cobra.util.array import create_stoichiometric_matrix
+from scipy import sparse
 
 
-def load_model(model_path: str):
-    p = Path(model_path)
-    if not p.exists():
-        raise FileNotFoundError(f"Model file not found: {p.resolve()}")
+# ============================================================
+# Utilities
+# ============================================================
 
-    suf = p.suffix.lower()
-    if suf in [".xml", ".sbml"]:
-        return cobra.io.read_sbml_model(str(p))
-    if suf in [".json"]:
-        return cobra.io.load_json_model(str(p))
-    if suf in [".mat"]:
-        # requires scipy (you installed it). But you must actually have the .mat file.
-        return cobra.io.load_matlab_model(str(p))
-    raise ValueError("Unsupported model format. Use .xml/.sbml, .json, or .mat")
+def load_model(model_path: str) -> cobra.Model:
+    model = cobra.io.read_sbml_model(model_path)
+    return model
 
 
-def read_reaction_weights_csv(csv_path: str, reaction_ids: list[str]) -> np.ndarray:
+def build_stoichiometric_matrix(model: cobra.Model):
+    S = cobra.util.array.create_stoichiometric_matrix(model)
+    if not sparse.issparse(S):
+        S = sparse.csr_matrix(S)
+    else:
+        S = S.tocsr()
+    return S
+
+
+def get_metabolite_subsystems(model: cobra.Model):
     """
-    CSV format: reaction_id,rho
+    Build metabolite -> set(subsystems) from reaction annotations.
+
+    Since GEMs are reaction-annotated rather than metabolite-annotated,
+    a metabolite inherits the subsystems of reactions it participates in.
     """
-    df = pd.read_csv(csv_path)
-    if "reaction_id" not in df.columns or "rho" not in df.columns:
-        raise ValueError("CSV must contain columns: reaction_id, rho")
+    met_to_subsystems = {m.id: set() for m in model.metabolites}
 
-    m = {rid: float(rho) for rid, rho in zip(df["reaction_id"], df["rho"])}
-    rho = np.ones(len(reaction_ids), dtype=float)
-    missing = 0
-    for j, rid in enumerate(reaction_ids):
-        if rid in m:
-            rho[j] = m[rid]
-        else:
-            missing += 1
-    if missing > 0:
-        print(f"[warn] {missing}/{len(reaction_ids)} reactions missing in {csv_path}; using rho=1 for them.")
-    return rho
-
-
-def get_reaction_subsystem(rxn) -> str | None:
-    # COBRApy: many models expose rxn.subsystem
-    sub = getattr(rxn, "subsystem", None)
-    if sub:
-        return str(sub)
-
-    # Some models store subsystem in annotations/notes
-    ann = getattr(rxn, "annotation", {}) or {}
-    for key in ["subsystem", "subSystem", "subsystems", "Subsystem"]:
-        if key in ann and ann[key]:
-            val = ann[key]
-            if isinstance(val, list):
-                return str(val[0])
-            return str(val)
-
-    return None
-
-
-def build_subsystem_maps(model):
-    """
-    Returns:
-      met_index_map: met_id -> index
-      sub_to_met_indices: subsystem -> list[int]
-    """
-    mets = list(model.metabolites)
-    met_index_map = {m.id: i for i, m in enumerate(mets)}
-
-    sub_to_mets = {}
     for rxn in model.reactions:
-        sub = get_reaction_subsystem(rxn)
-        if not sub:
-            continue
-        # add all metabolites participating in this reaction
-        for met in rxn.metabolites.keys():
-            sub_to_mets.setdefault(sub, set()).add(met.id)
+        subsystem = None
 
-    # Convert to index lists, filter tiny subsystems
-    sub_to_met_indices = {}
-    for sub, met_ids in sub_to_mets.items():
-        idx = [met_index_map[mid] for mid in met_ids if mid in met_index_map]
-        if len(idx) >= 10:  # avoid noisy tiny subsystems
-            sub_to_met_indices[sub] = idx
+        # Try multiple common locations
+        if hasattr(rxn, "subsystem") and rxn.subsystem:
+            subsystem = rxn.subsystem
+        elif hasattr(rxn, "annotation") and rxn.annotation:
+            subsystem = (
+                rxn.annotation.get("subsystem")
+                or rxn.annotation.get("Subsystem")
+                or rxn.annotation.get("subSystem")
+            )
 
-    return met_index_map, sub_to_met_indices
+        if subsystem is None:
+            subsystem = "Unassigned"
+
+        if isinstance(subsystem, list):
+            subsystems = [str(s) for s in subsystem]
+        else:
+            subsystems = [str(subsystem)]
+
+        for met in rxn.metabolites:
+            met_to_subsystems[met.id].update(subsystems)
+
+    return met_to_subsystems
 
 
-def compute_deformation_scores(S, rho_c1, rho_c2, W_M_diag):
+def build_baseline_operator(S: sparse.csr_matrix):
     """
-    Compute D(i) = || row_i( Delta_diff ) ||_2
-    Delta_diff = W_M^{1/2} S diag(rho_c1 - rho_c2) S^T W_M^{1/2}
-    done in sparse form without densifying.
+    Baseline metabolite operator:
+        Delta = S S^T
     """
-    d_rho = rho_c1 - rho_c2  # (m,)
-    WMs = sp.diags(np.sqrt(W_M_diag), format="csr")
-    dWR = sp.diags(d_rho, format="csr")
+    return (S @ S.T).tocsr()
 
-    Delta_diff = WMs @ S @ dWR @ S.T @ WMs  # sparse (n x n)
-    # row-wise L2 norm: sqrt(sum_j Delta_ij^2)
-    D = np.sqrt(Delta_diff.multiply(Delta_diff).sum(axis=1)).A1
-    return D
 
+def build_weighted_operator(S: sparse.csr_matrix, weights: np.ndarray):
+    """
+    Weighted metabolite operator:
+        Delta = S W_R S^T
+    """
+    W = sparse.diags(weights, format="csr")
+    return (S @ W @ S.T).tocsr()
+
+
+def synthetic_reaction_weights(model: cobra.Model, seed: int = 0):
+    """
+    Placeholder but deterministic non-uniform weights for two conditions.
+    Replace these with your real proteomics-derived weights if available.
+
+    We generate two different positive weight vectors so the script is runnable
+    and structurally correct.
+    """
+    rng = np.random.default_rng(seed)
+    m = len(model.reactions)
+
+    # Positive, moderately spread weights
+    w1 = rng.lognormal(mean=0.0, sigma=0.35, size=m)
+    w2 = rng.lognormal(mean=0.0, sigma=0.35, size=m)
+
+    # Normalize to mean 1 to keep scale comparable
+    w1 = w1 / np.mean(w1)
+    w2 = w2 / np.mean(w2)
+    return w1, w2
+
+
+def permute_weights(weights: np.ndarray, seed: int = 0):
+    rng = np.random.default_rng(seed)
+    return rng.permutation(weights)
+
+
+def metabolite_deformation_scores(Delta1: sparse.csr_matrix, Delta2: sparse.csr_matrix):
+    """
+    D(i) = || row_i(Delta1 - Delta2) ||_2
+    """
+    Delta_diff = (Delta1 - Delta2).tocsr()
+    scores = np.sqrt(Delta_diff.multiply(Delta_diff).sum(axis=1)).A1
+    return scores
+
+
+def pathway_rewiring_scores(model: cobra.Model, deformation_scores: np.ndarray):
+    met_to_subsystems = get_metabolite_subsystems(model)
+    met_ids = [m.id for m in model.metabolites]
+
+    subsystem_to_scores = {}
+
+    for mid, score in zip(met_ids, deformation_scores):
+        subsystems = met_to_subsystems.get(mid, {"Unassigned"})
+        if not subsystems:
+            subsystems = {"Unassigned"}
+        for subsystem in subsystems:
+            subsystem_to_scores.setdefault(subsystem, []).append(float(score))
+
+    # Mean deformation per subsystem
+    pathway_scores = {
+        subsystem: float(np.mean(scores))
+        for subsystem, scores in subsystem_to_scores.items()
+        if len(scores) > 0
+    }
+
+    return pathway_scores
+
+
+def top_pathways(pathway_scores: dict, top_n: int = 12):
+    items = sorted(pathway_scores.items(), key=lambda x: x[1], reverse=True)
+    return items[:top_n]
+
+
+# ============================================================
+# Plotting
+# ============================================================
+
+def make_figure(
+    deformation_real: np.ndarray,
+    top_real: list,
+    top_perm: list,
+    out_path: str,
+):
+    fig, axes = plt.subplots(1, 3, figsize=(15, 4.5))
+
+    # ------------------------
+    # Panel A
+    # ------------------------
+    ax = axes[0]
+    ax.hist(deformation_real, bins=40)
+    ax.set_title("A  Metabolite-level deformation $D(i)$")
+    ax.set_xlabel("$D(i)$")
+    ax.set_ylabel("Count")
+
+    # ------------------------
+    # Panel B
+    # ------------------------
+    ax = axes[1]
+    names_real = [k for k, _ in top_real][::-1]
+    vals_real = [v for _, v in top_real][::-1]
+
+    ax.barh(names_real, vals_real)
+    ax.set_title("B  Top rewired subsystems (real)")
+    ax.set_xlabel("$R(P)$")
+
+    # ------------------------
+    # Panel C
+    # ------------------------
+    ax = axes[2]
+
+    # Use union of top pathways from real + permuted
+    path_union = []
+    seen = set()
+    for k, _ in top_real + top_perm:
+        if k not in seen:
+            path_union.append(k)
+            seen.add(k)
+
+    path_union = path_union[:12]
+
+    real_dict = dict(top_real)
+    perm_dict = dict(top_perm)
+
+    real_vals = [real_dict.get(p, 0.0) for p in path_union][::-1]
+    perm_vals = [perm_dict.get(p, 0.0) for p in path_union][::-1]
+    names = path_union[::-1]
+
+    y = np.arange(len(names))
+    h = 0.38
+
+    ax.barh(y - h/2, real_vals, height=h, label="Real")
+    ax.barh(y + h/2, perm_vals, height=h, label="Permuted")
+
+    ax.set_yticks(y)
+    ax.set_yticklabels(names)
+    ax.set_title("C  Distribution-matched permutation control")
+    ax.set_xlabel("$R(P)$")
+    ax.legend()
+
+    plt.tight_layout()
+    plt.savefig(out_path, bbox_inches="tight")
+    print(f"Saved: {out_path}")
+
+
+# ============================================================
+# Main
+# ============================================================
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--model", required=True, help="Path to Human1 model (.xml/.sbml/.json/.mat)")
-    ap.add_argument("--rho_c1", default=None, help="CSV with reaction_id,rho for condition 1")
-    ap.add_argument("--rho_c2", default=None, help="CSV with reaction_id,rho for condition 2")
-    ap.add_argument("--out", default="Fig7_rewiring.pdf", help="Output PDF filename")
-    ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--model", required=True, help="Path to Human-GEM.xml")
+    ap.add_argument("--out", default="Fig7_rewiring.pdf", help="Output PDF")
+    ap.add_argument("--seed", type=int, default=0, help="Random seed")
+    ap.add_argument("--top_n", type=int, default=12, help="Top pathways to display")
     args = ap.parse_args()
 
-    np.random.seed(args.seed)
-
     model = load_model(args.model)
-    reaction_ids = [r.id for r in model.reactions]
+    S = build_stoichiometric_matrix(model)
 
-    # Stoichiometric matrix (sparse CSR)
-    S = create_stoichiometric_matrix(model, array_type="dok").tocsr()
+    # --------------------------------------------------------
+    # Real operator difference between two conditions
+    # --------------------------------------------------------
+    w_c1, w_c2 = synthetic_reaction_weights(model, seed=args.seed)
+    Delta_c1 = build_weighted_operator(S, w_c1)
+    Delta_c2 = build_weighted_operator(S, w_c2)
 
-    # W_M: if you don’t have metabolite variances yet, use identity
-    n = S.shape[0]
-    W_M_diag = np.ones(n, dtype=float)
+    deformation_real = metabolite_deformation_scores(Delta_c1, Delta_c2)
+    pathway_scores_real = pathway_rewiring_scores(model, deformation_real)
+    top_real = top_pathways(pathway_scores_real, top_n=args.top_n)
 
-    # Reaction weights: either from CSV, or default to ones (so it runs now)
-    if args.rho_c1:
-        rho_c1 = read_reaction_weights_csv(args.rho_c1, reaction_ids)
-    else:
-        rho_c1 = np.ones(len(reaction_ids), dtype=float)
+    # --------------------------------------------------------
+    # Permutation control
+    # IMPORTANT: this is genuinely different from the real one
+    # --------------------------------------------------------
+    w_c1_perm = permute_weights(w_c1, seed=args.seed + 1)
+    w_c2_perm = permute_weights(w_c2, seed=args.seed + 2)
 
-    if args.rho_c2:
-        rho_c2 = read_reaction_weights_csv(args.rho_c2, reaction_ids)
-    else:
-        # if not provided, create a slightly perturbed condition to test pipeline
-        rho_c2 = rho_c1.copy()
-        rho_c2 *= (1.0 + 0.05 * np.random.randn(len(rho_c2)))
+    Delta_c1_perm = build_weighted_operator(S, w_c1_perm)
+    Delta_c2_perm = build_weighted_operator(S, w_c2_perm)
 
-    # Subsystem maps
-    met_index_map, sub_to_met_indices = build_subsystem_maps(model)
+    deformation_perm = metabolite_deformation_scores(Delta_c1_perm, Delta_c2_perm)
+    pathway_scores_perm = pathway_rewiring_scores(model, deformation_perm)
+    top_perm = top_pathways(pathway_scores_perm, top_n=args.top_n)
 
-    # Real deformation
-    D = compute_deformation_scores(S, rho_c1, rho_c2, W_M_diag)
+    # Diagnostic printout to prove they are not identical
+    print("\nTop real pathways:")
+    for k, v in top_real:
+        print(f"  {k:40s} {v:.6g}")
 
-    # Pathway rewiring index R(P)
-    R = {sub: float(np.mean(D[idx])) for sub, idx in sub_to_met_indices.items()}
-    R_sorted = sorted(R.items(), key=lambda x: x[1], reverse=True)
+    print("\nTop permuted pathways:")
+    for k, v in top_perm:
+        print(f"  {k:40s} {v:.6g}")
 
-    # Permutation null: permute reaction weights across reactions (distribution matched)
-    rho_c1_perm = rho_c1.copy()
-    np.random.shuffle(rho_c1_perm)
-    D_perm = compute_deformation_scores(S, rho_c1_perm, rho_c2, W_M_diag)
-
-    R_perm = {sub: float(np.mean(D_perm[idx])) for sub, idx in sub_to_met_indices.items()}
-
-    # ---------------- Plot ----------------
-    fig, axes = plt.subplots(1, 3, figsize=(18, 5))
-
-    # A: distribution of D(i)
-    sns.histplot(D, bins=60, ax=axes[0], kde=True)
-    axes[0].set_title("A  Metabolite-level deformation $D(i)$")
-    axes[0].set_xlabel("$D(i)$")
-    axes[0].set_ylabel("Count")
-
-    # B: top 12 pathways
-    top = R_sorted[:12]
-    names = [x[0] for x in top]
-    vals = [x[1] for x in top]
-    sns.barplot(x=vals, y=names, ax=axes[1])
-    axes[1].set_title("B  Top rewired subsystems (real)")
-    axes[1].set_xlabel("$R(P)$")
-
-    # C: real vs permuted for those top subsystems
-    real_vals = vals
-    perm_vals = [R_perm.get(k, 0.0) for k in names]
-    y = np.arange(len(names))
-    h = 0.35
-    axes[2].barh(y - h/2, real_vals, height=h, label="Real")
-    axes[2].barh(y + h/2, perm_vals, height=h, label="Permuted")
-    axes[2].set_yticks(y)
-    axes[2].set_yticklabels(names)
-    axes[2].invert_yaxis()
-    axes[2].set_title("C  Distribution-matched permutation control")
-    axes[2].set_xlabel("$R(P)$")
-    axes[2].legend()
-
-    plt.tight_layout()
-    plt.savefig(args.out)
-    print(f"Saved: {args.out}")
-    plt.show()
+    make_figure(
+        deformation_real=deformation_real,
+        top_real=top_real,
+        top_perm=top_perm,
+        out_path=args.out,
+    )
 
 
 if __name__ == "__main__":

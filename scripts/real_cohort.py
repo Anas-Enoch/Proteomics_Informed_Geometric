@@ -18,7 +18,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import roc_auc_score, accuracy_score
-
+from proteomics_weighting import build_operator
 
 # -------------------------
 # Text parsing (Workbench)
@@ -243,22 +243,9 @@ def map_workbench_to_model(met_name: str, met_ann_row: pd.Series, name_to_ids: d
 # -------------------------
 # Operator construction
 # -------------------------
-# NOTE:
-# This function constructs the unweighted stoichiometric metabolite Laplacian
-# Delta_M = S S^T, corresponding to W_R = I.
-# Proteomics-informed operator construction is evaluated separately in the
-# masking, robustness, and separability analyses described in the manuscript.
-
-def build_metabolite_laplacian(model: cobra.Model):
-    # Ask COBRApy for a scipy sparse matrix (version-safe)
-    S = cobra.util.array.create_stoichiometric_matrix(model)  # default is sparse in many versions
-    if not sparse.issparse(S):
-        S = sparse.csr_matrix(S)
-    else:
-        S = S.tocsr()
-
-    Delta = (S @ S.T).tocsr()
-    return Delta
+# build_operator() from proteomics_weighting.py is used directly.
+# It supports three modes: baseline (W_R=I), proteomics (CPTAC-informed),
+# and permuted (distribution-matched null). See proteomics_weighting.py.
 
 def submatrix_sparse(A: sparse.spmatrix, idx: np.ndarray):
     """
@@ -342,6 +329,32 @@ def main():
     ap.add_argument("--k_eigs", type=int, default=10)
     ap.add_argument("--repeats", type=int, default=50)
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--condition", default="tumor", help="Proteomics condition to use")
+    ap.add_argument(
+        "--operator",
+        choices=["baseline", "proteomics", "permuted"],
+        default="baseline",
+        help=(
+            "baseline   = S S^T  (W_R = I, topology only)\n"
+            "proteomics = S W_R^(c) S^T  (CPTAC-informed)\n"
+            "permuted   = S W_R_perm S^T  (distribution-matched null)"
+        ),
+    )
+    ap.add_argument(
+        "--proteomics",
+        default=None,
+        help="Path to CPTAC TSV file (required when --operator != baseline)",
+    )
+    ap.add_argument(
+        "--hgnc",
+        default=None,
+        help=(
+            "Path to HGNC complete set TSV for symbol->Ensembl remapping. "
+            "Required when --operator=proteomics and model gene.name fields are empty. "
+            "Download: curl -o data/hgnc_complete_set.txt "
+            "https://storage.googleapis.com/public-download-files/hgnc/tsv/tsv/hgnc_complete_set.txt"
+        ),
+    )
     args = ap.parse_args()
 
     df, sample_groups, met_ann = parse_workbench_txt(args.table)
@@ -359,7 +372,17 @@ def main():
     model = cobra.io.read_sbml_model(args.model)
 
     # build operator (baseline)
-    Delta_full = build_metabolite_laplacian(model)
+    Delta_full = build_operator(
+        model,
+        mode=args.operator,
+        proteomics_path=args.proteomics,
+        condition=args.condition,
+        rho_0=0.1,
+        alpha=1.0,
+        seed=args.seed,
+        hgnc_path=args.hgnc,
+    )
+
 
     # build mapping: Workbench metabolite -> model metabolite id
     name_to_ids = build_name_to_ids(model)
@@ -396,9 +419,8 @@ def main():
 
     # Build sample features by projecting metabolite concentrations onto eigenvectors
     X_raw = df.loc[wb_mets].T.values  # shape: (#samples, #mets)
-    
 
-        # repeated stratified K-fold cross-validation
+    # repeated stratified K-fold cross-validation
     rskf = RepeatedStratifiedKFold(
         n_splits=5,
         n_repeats=10,
