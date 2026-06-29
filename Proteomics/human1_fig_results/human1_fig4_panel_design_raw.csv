@@ -1,0 +1,193 @@
+step,added_metabolite_id,subsystem,distortion_after,record_type,panel_size,strategy,trial,distortion
+1.0,MAM01352l,Pool reactions;Protein degradation,,greedy_trace,,,,
+2.0,MAM01971r,N-glycan metabolism;Transport reactions,0.39935506542445326,greedy_trace,,,,
+3.0,MAM01351l,Pool reactions;Protein degradation,1.2516865981413023,greedy_trace,,,,
+4.0,MAM02677x,Beta oxidation of unsaturated fatty acids (n-7) (peroxisomal);Beta oxidation of unsaturated fatty acids (n-9) (peroxisomal);Fatty acid oxidation,1.4568113639805615,greedy_trace,,,,
+5.0,MAM02013l,Glycosphingolipid metabolism,1.6774121926761567,greedy_trace,,,,
+6.0,MAM00150g,N-glycan metabolism,1.9220204603388553,greedy_trace,,,,
+7.0,MAM00148g,N-glycan metabolism,1.9082764217730335,greedy_trace,,,,
+8.0,MAM00149g,N-glycan metabolism,1.8957016493628,greedy_trace,,,,
+9.0,MAM00143g,N-glycan metabolism,1.8868441008030545,greedy_trace,,,,
+10.0,MAM00142g,N-glycan metabolism,1.8717747578616313,greedy_trace,,,,
+11.0,MAM02643c,Fatty acid biosynthesis (even-chain);Lipoic acid metabolism,1.8642692598728547,greedy_trace,,,,
+12.0,MAM02442c,Fatty acid biosynthesis;Fatty acid biosynthesis (even-chain);Fatty acid biosynthesis (odd-chain),1.8583310793098813,greedy_trace,,,,
+13.0,MAM00184c,Fatty acid biosynthesis;Fatty acid biosynthesis (even-chain);Fatty acid biosynthesis (odd-chain),1.8527050616601397,greedy_trace,,,,
+14.0,MAM00141l,Keratan sulfate degradation;N-glycan metabolism,1.8507213608822028,greedy_trace,,,,
+15.0,MAM02487m,Pyrimidine metabolism;Transport reactions,1.849877187890029,greedy_trace,,,,
+16.0,MAM01996c,Protein assembly;Protein degradation;Starch and sucrose metabolism,1.8491753319541535,greedy_trace,,,,
+17.0,MAM03182x,Fatty acid oxidation,1.8485252524651592,greedy_trace,,,,
+18.0,MAM03203x,Fatty acid oxidation,1.8478873004263878,greedy_trace,,,,
+19.0,MAM03194x,Fatty acid oxidation,1.8472507835962144,greedy_trace,,,,
+20.0,MAM03333x,Fatty acid oxidation,1.846619031578612,greedy_trace,,,,
+21.0,MAM00934m,Beta oxidation of branched-chain fatty acids (mitochondrial),1.8459993512413075,greedy_trace,,,,
+22.0,MAM03358m,Fatty acid oxidation,1.8453821434858262,greedy_trace,,,,
+23.0,MAM00678x,Beta oxidation of di-unsaturated fatty acids (n-6) (peroxisomal);Fatty acid oxidation,1.8447664967817106,greedy_trace,,,,
+24.0,MAM03361m,Fatty acid oxidation,1.844152358288991,greedy_trace,,,,
+25.0,MAM03351m,Fatty acid oxidation,1.8435420266938989,greedy_trace,,,,
+26.0,MAM00696m,Beta oxidation of di-unsaturated fatty acids (n-6) (mitochondrial),1.8429350752409621,greedy_trace,,,,
+27.0,MAM01576m,Beta oxidation of di-unsaturated fatty acids (n-6) (mitochondrial);Fatty acid oxidation,1.8423308125101232,greedy_trace,,,,
+28.0,MAM03021m,Beta oxidation of di-unsaturated fatty acids (n-6) (mitochondrial);Fatty acid oxidation,1.8417276956972761,greedy_trace,,,,
+29.0,MAM02461r,Glycosylphosphatidylinositol (GPI)-anchor biosynthesis;Phosphatidylinositol phosphate metabolism,1.8411262990459718,greedy_trace,,,,
+30.0,MAM00025r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Fatty acid biosynthesis,1.8405333156574435,greedy_trace,,,,
+31.0,MAM03887x,Fatty acid oxidation;Transport reactions,1.8399419650210187,greedy_trace,,,,
+32.0,MAM03009m,Beta oxidation of di-unsaturated fatty acids (n-6) (mitochondrial);Omega-6 fatty acid metabolism,1.8393519624247598,greedy_trace,,,,
+33.0,MAM00016r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Fatty acid biosynthesis,1.838766644425036,greedy_trace,,,,
+34.0,MAM00578m,Beta oxidation of branched-chain fatty acids (mitochondrial),1.8381826079875914,greedy_trace,,,,
+35.0,MAM00716r,Fatty acid oxidation,1.8375995336250892,greedy_trace,,,,
+36.0,MAM00091m,Fatty acid oxidation;Omega-6 fatty acid metabolism,1.8370206214432563,greedy_trace,,,,
+37.0,MAM00131r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Fatty acid oxidation,1.8364429159672717,greedy_trace,,,,
+38.0,MAM00262r,Carnitine shuttle (endoplasmic reticular);Fatty acid oxidation;Formation and hydrolysis of cholesterol esters,1.835867577254652,greedy_trace,,,,
+39.0,MAM00095r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Fatty acid oxidation,1.8352937063070711,greedy_trace,,,,
+40.0,MAM00121r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Fatty acid oxidation,1.8347208386603322,greedy_trace,,,,
+41.0,MAM03171x,Fatty acid oxidation,1.8341492471265972,greedy_trace,,,,
+42.0,MAM00007r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Fatty acid biosynthesis,1.8335791128020065,greedy_trace,,,,
+43.0,MAM00678m,Beta oxidation of di-unsaturated fatty acids (n-6) (mitochondrial);Fatty acid oxidation,1.833010632105668,greedy_trace,,,,
+44.0,MAM00119r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Fatty acid oxidation,1.8324430137945487,greedy_trace,,,,
+45.0,MAM00125r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Fatty acid oxidation,1.831877715049191,greedy_trace,,,,
+46.0,MAM03013m,Beta oxidation of unsaturated fatty acids (n-9) (mitochondrial),1.831313346834489,greedy_trace,,,,
+47.0,MAM01017m,Beta oxidation of branched-chain fatty acids (mitochondrial),1.8307503986272715,greedy_trace,,,,
+48.0,MAM00095m,Beta oxidation of even-chain fatty acids (mitochondrial);Carnitine shuttle (mitochondrial);Fatty acid oxidation,1.8301885808497498,greedy_trace,,,,
+49.0,MAM03014m,Beta oxidation of unsaturated fatty acids (n-7) (mitochondrial),1.8296283438547765,greedy_trace,,,,
+50.0,MAM00121m,Beta oxidation of even-chain fatty acids (mitochondrial);Carnitine shuttle (mitochondrial),1.8290715924440422,greedy_trace,,,,
+51.0,MAM00073m,Omega-6 fatty acid metabolism,1.8285159294121276,greedy_trace,,,,
+52.0,MAM00682m,Fatty acid oxidation;Omega-6 fatty acid metabolism,1.827962223230806,greedy_trace,,,,
+53.0,MAM00103m,Beta oxidation of even-chain fatty acids (mitochondrial);Carnitine shuttle (mitochondrial);Fatty acid oxidation,1.8274098024266745,greedy_trace,,,,
+54.0,MAM03012m,Beta oxidation of unsaturated fatty acids (n-9) (mitochondrial),1.8268589220841913,greedy_trace,,,,
+55.0,MAM00044m,Beta oxidation of odd-chain fatty acids (mitochondrial),1.82630921306579,greedy_trace,,,,
+56.0,MAM03010m,Beta oxidation of di-unsaturated fatty acids (n-6) (mitochondrial),1.8257604676466357,greedy_trace,,,,
+57.0,MAM00262m,Beta oxidation of even-chain fatty acids (mitochondrial);Carnitine shuttle (mitochondrial),1.8252127229566344,greedy_trace,,,,
+58.0,MAM03029m,Omega-6 fatty acid metabolism,1.8246660867429878,greedy_trace,,,,
+59.0,MAM03024m,Beta oxidation of unsaturated fatty acids (n-7) (mitochondrial),1.8241208164927945,greedy_trace,,,,
+60.0,MAM00119m,Beta oxidation of even-chain fatty acids (mitochondrial);Carnitine shuttle (mitochondrial);Fatty acid oxidation,1.8235765167208196,greedy_trace,,,,
+61.0,MAM00108r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Fatty acid oxidation,1.8230334080241988,greedy_trace,,,,
+62.0,MAM00125m,Beta oxidation of even-chain fatty acids (mitochondrial);Carnitine shuttle (mitochondrial);Fatty acid oxidation,1.8224910667122682,greedy_trace,,,,
+63.0,MAM00009r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Fatty acid oxidation,1.8219494993009016,greedy_trace,,,,
+64.0,MAM00054m,Beta oxidation of odd-chain fatty acids (mitochondrial),1.8214096093919034,greedy_trace,,,,
+65.0,MAM02647r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Fatty acid biosynthesis,1.8208705473108358,greedy_trace,,,,
+66.0,MAM00108m,Beta oxidation of even-chain fatty acids (mitochondrial);Carnitine shuttle (mitochondrial);Fatty acid oxidation,1.820332601105105,greedy_trace,,,,
+67.0,MAM01364m,Carnitine shuttle (mitochondrial);Fatty acid oxidation;Omega-6 fatty acid metabolism,1.8197955520880793,greedy_trace,,,,
+68.0,MAM00040m,Beta oxidation of even-chain fatty acids (mitochondrial),1.8192592810349248,greedy_trace,,,,
+69.0,MAM03220x,Fatty acid oxidation,1.818723778175783,greedy_trace,,,,
+70.0,MAM01349c,Pantothenate and CoA metabolism;Protein assembly;Protein degradation,1.819610367437505,greedy_trace,,,,
+71.0,MAM00153g,N-glycan metabolism;Transport reactions,1.8336581561668397,greedy_trace,,,,
+72.0,MAM02249l,Keratan sulfate degradation,1.7426605916284013,greedy_trace,,,,
+73.0,MAM02245l,Keratan sulfate degradation,1.7552044714374324,greedy_trace,,,,
+74.0,MAM02252l,Keratan sulfate degradation,1.7199000494439574,greedy_trace,,,,
+75.0,MAM02485m,Pantothenate and CoA metabolism;Protein degradation;Transport reactions,1.7319183781285203,greedy_trace,,,,
+76.0,MAM02242l,Keratan sulfate degradation,1.7188520339202513,greedy_trace,,,,
+77.0,MAM01409c,Fatty acid biosynthesis (even-chain),1.7178841644097627,greedy_trace,,,,
+78.0,MAM00139r,N-glycan metabolism;Transport reactions,1.7028788979947784,greedy_trace,,,,
+79.0,MAM01970r,N-glycan metabolism;Transport reactions,1.6914131089565314,greedy_trace,,,,
+80.0,MAM02255l,Keratan sulfate degradation,1.6807816327487848,greedy_trace,,,,
+81.0,MAM02239l,Keratan sulfate degradation,1.6705194848012752,greedy_trace,,,,
+82.0,MAM02258l,Keratan sulfate degradation,1.661746605063738,greedy_trace,,,,
+83.0,MAM02276l,Keratan sulfate degradation,1.6532505931953867,greedy_trace,,,,
+84.0,MAM02262l,Keratan sulfate degradation,1.6463170852638596,greedy_trace,,,,
+85.0,MAM02265l,Keratan sulfate degradation,1.6410069079667702,greedy_trace,,,,
+86.0,MAM02268l,Keratan sulfate degradation,1.6372398142081699,greedy_trace,,,,
+87.0,MAM01358c,Protein assembly;Transport reactions,1.6339458179805089,greedy_trace,,,,
+88.0,MAM03326x,Fatty acid oxidation,1.6336000452248547,greedy_trace,,,,
+89.0,MAM00078x,Beta oxidation of phytanic acid (peroxisomal);Fatty acid oxidation,1.6332664299799924,greedy_trace,,,,
+90.0,MAM00042x,Beta oxidation of even-chain fatty acids (peroxisomal);Beta oxidation of unsaturated fatty acids (n-9) (peroxisomal);Fatty acid oxidation,1.632938117363545,greedy_trace,,,,
+91.0,MAM00317r,Carnitine shuttle (endoplasmic reticular);Fatty acid oxidation;Formation and hydrolysis of cholesterol esters,1.632610409855183,greedy_trace,,,,
+92.0,MAM00018r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Formation and hydrolysis of cholesterol esters,1.6322851005979495,greedy_trace,,,,
+93.0,MAM00093r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Formation and hydrolysis of cholesterol esters,1.6319611284396114,greedy_trace,,,,
+94.0,MAM00134r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Formation and hydrolysis of cholesterol esters,1.6316390893594988,greedy_trace,,,,
+95.0,MAM02112r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Formation and hydrolysis of cholesterol esters,1.6313181371453276,greedy_trace,,,,
+96.0,MAM00113r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Formation and hydrolysis of cholesterol esters,1.6309981505256423,greedy_trace,,,,
+97.0,MAM02971r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Formation and hydrolysis of cholesterol esters,1.6306790960582505,greedy_trace,,,,
+98.0,MAM02110r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Formation and hydrolysis of cholesterol esters,1.6303605711796298,greedy_trace,,,,
+99.0,MAM00264r,Carnitine shuttle (endoplasmic reticular);Fatty acid oxidation;Formation and hydrolysis of cholesterol esters,1.6300425563565843,greedy_trace,,,,
+100.0,MAM00343r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Formation and hydrolysis of cholesterol esters,1.6297252787675247,greedy_trace,,,,
+101.0,MAM00012r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Formation and hydrolysis of cholesterol esters,1.6294085113070114,greedy_trace,,,,
+102.0,MAM00110r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Formation and hydrolysis of cholesterol esters,1.629092126998332,greedy_trace,,,,
+103.0,MAM02052r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Formation and hydrolysis of cholesterol esters,1.628776477719413,greedy_trace,,,,
+104.0,MAM01586r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Formation and hydrolysis of cholesterol esters,1.628461261029108,greedy_trace,,,,
+105.0,MAM00101r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Formation and hydrolysis of cholesterol esters,1.6281465372639794,greedy_trace,,,,
+106.0,MAM02747x,Beta oxidation of phytanic acid (peroxisomal);Fatty acid oxidation,1.6278321461607392,greedy_trace,,,,
+107.0,MAM02612r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Formation and hydrolysis of cholesterol esters,1.6275182160248418,greedy_trace,,,,
+108.0,MAM01773r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Formation and hydrolysis of cholesterol esters,1.6272052833688406,greedy_trace,,,,
+109.0,MAM00123r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Formation and hydrolysis of cholesterol esters,1.6268928072411153,greedy_trace,,,,
+110.0,MAM00023r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Formation and hydrolysis of cholesterol esters,1.6265807020608953,greedy_trace,,,,
+111.0,MAM00006r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Formation and hydrolysis of cholesterol esters,1.626269578991236,greedy_trace,,,,
+112.0,MAM01236r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Formation and hydrolysis of cholesterol esters,1.6259588043035302,greedy_trace,,,,
+113.0,MAM01725r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Formation and hydrolysis of cholesterol esters,1.625648896912099,greedy_trace,,,,
+114.0,MAM01141r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Formation and hydrolysis of cholesterol esters,1.6253395271213225,greedy_trace,,,,
+115.0,MAM00118r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Formation and hydrolysis of cholesterol esters,1.6250305900421114,greedy_trace,,,,
+116.0,MAM01237r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Formation and hydrolysis of cholesterol esters,1.6247222590533403,greedy_trace,,,,
+117.0,MAM00004r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Formation and hydrolysis of cholesterol esters,1.6244142461695175,greedy_trace,,,,
+118.0,MAM00020r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Formation and hydrolysis of cholesterol esters,1.624106885371971,greedy_trace,,,,
+119.0,MAM01191r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Formation and hydrolysis of cholesterol esters,1.6237998413385828,greedy_trace,,,,
+120.0,MAM00106r,Carnitine shuttle (endoplasmic reticular);Fatty acid activation (endoplasmic reticular);Formation and hydrolysis of cholesterol esters,1.6234932152626493,greedy_trace,,,,
+,,,,panel_comparison,20.0,geometry_aware,0.0,1.846619031578612
+,,,,panel_comparison,20.0,degree,0.0,48.35228574112003
+,,,,panel_comparison,20.0,random,0.0,224.23507175618232
+,,,,panel_comparison,20.0,random,1.0,41.660142980646874
+,,,,panel_comparison,20.0,random,2.0,40.47185289503081
+,,,,panel_comparison,20.0,random,3.0,45.316469942220834
+,,,,panel_comparison,20.0,random,4.0,16.20114976124151
+,,,,panel_comparison,20.0,random,5.0,14.246489536321087
+,,,,panel_comparison,20.0,random,6.0,39.28917555261567
+,,,,panel_comparison,20.0,random,7.0,48.305581552421046
+,,,,panel_comparison,20.0,random,8.0,15.034765110304514
+,,,,panel_comparison,20.0,random,9.0,49.05225169173428
+,,,,panel_comparison,40.0,geometry_aware,0.0,1.8347208386603322
+,,,,panel_comparison,40.0,degree,0.0,30.864313623655466
+,,,,panel_comparison,40.0,random,0.0,49.14389375808693
+,,,,panel_comparison,40.0,random,1.0,10.79212659478612
+,,,,panel_comparison,40.0,random,2.0,8.39626552724607
+,,,,panel_comparison,40.0,random,3.0,16.172908223464667
+,,,,panel_comparison,40.0,random,4.0,16.59568879990393
+,,,,panel_comparison,40.0,random,5.0,18.73164054463539
+,,,,panel_comparison,40.0,random,6.0,29.370290796153036
+,,,,panel_comparison,40.0,random,7.0,1241.8612862105276
+,,,,panel_comparison,40.0,random,8.0,30.230253770398466
+,,,,panel_comparison,40.0,random,9.0,31.566794674042104
+,,,,panel_comparison,60.0,geometry_aware,0.0,1.8235765167208196
+,,,,panel_comparison,60.0,degree,0.0,30.697025854041044
+,,,,panel_comparison,60.0,random,0.0,25.52598872892625
+,,,,panel_comparison,60.0,random,1.0,15.479097455658545
+,,,,panel_comparison,60.0,random,2.0,21.495104077953354
+,,,,panel_comparison,60.0,random,3.0,16.414210041035556
+,,,,panel_comparison,60.0,random,4.0,24.199192642944734
+,,,,panel_comparison,60.0,random,5.0,15.349615261174508
+,,,,panel_comparison,60.0,random,6.0,24.450800098641697
+,,,,panel_comparison,60.0,random,7.0,11.440873073161532
+,,,,panel_comparison,60.0,random,8.0,24.849489389564205
+,,,,panel_comparison,60.0,random,9.0,15.863180707945702
+,,,,panel_comparison,80.0,geometry_aware,0.0,1.6807816327487848
+,,,,panel_comparison,80.0,degree,0.0,30.125692957733808
+,,,,panel_comparison,80.0,random,0.0,20.56570471953218
+,,,,panel_comparison,80.0,random,1.0,14.213165068738144
+,,,,panel_comparison,80.0,random,2.0,9.04510096511355
+,,,,panel_comparison,80.0,random,3.0,9.427344067409466
+,,,,panel_comparison,80.0,random,4.0,9.139173868404937
+,,,,panel_comparison,80.0,random,5.0,7.796230915780589
+,,,,panel_comparison,80.0,random,6.0,27.14562893570515
+,,,,panel_comparison,80.0,random,7.0,14.881987499969146
+,,,,panel_comparison,80.0,random,8.0,12.116536731357177
+,,,,panel_comparison,80.0,random,9.0,22.762509676223694
+,,,,panel_comparison,100.0,geometry_aware,0.0,1.6297252787675247
+,,,,panel_comparison,100.0,degree,0.0,27.882992830712467
+,,,,panel_comparison,100.0,random,0.0,14.193933271206689
+,,,,panel_comparison,100.0,random,1.0,16.656882236645252
+,,,,panel_comparison,100.0,random,2.0,11.365440662847941
+,,,,panel_comparison,100.0,random,3.0,7.143316802286469
+,,,,panel_comparison,100.0,random,4.0,10.074765733540193
+,,,,panel_comparison,100.0,random,5.0,10.095177114757773
+,,,,panel_comparison,100.0,random,6.0,10.883816863523602
+,,,,panel_comparison,100.0,random,7.0,20.38544378884412
+,,,,panel_comparison,100.0,random,8.0,16.106496943005727
+,,,,panel_comparison,100.0,random,9.0,18.53460230181239
+,,,,panel_comparison,120.0,geometry_aware,0.0,1.6234932152626493
+,,,,panel_comparison,120.0,degree,0.0,23.391224771756427
+,,,,panel_comparison,120.0,random,0.0,8.578480985207593
+,,,,panel_comparison,120.0,random,1.0,9.42816957222885
+,,,,panel_comparison,120.0,random,2.0,575.7943653757857
+,,,,panel_comparison,120.0,random,3.0,8.321948636031655
+,,,,panel_comparison,120.0,random,4.0,12.988152045285904
+,,,,panel_comparison,120.0,random,5.0,7.351872557643787
+,,,,panel_comparison,120.0,random,6.0,9.067003703201008
+,,,,panel_comparison,120.0,random,7.0,11.644359370318455
+,,,,panel_comparison,120.0,random,8.0,8.282462492767586
+,,,,panel_comparison,120.0,random,9.0,9.882680344113712

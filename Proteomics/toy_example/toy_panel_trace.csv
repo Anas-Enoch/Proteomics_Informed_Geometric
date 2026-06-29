@@ -1,0 +1,7 @@
+step,added_metabolite,subsystem,distortion_after
+1,0,P1_glycolysis,1.0
+2,7,P2_TCA,0.5
+3,2,P1_glycolysis,0.5
+4,4,P2_TCA,0.5
+5,10,P3_lipid,0.5
+6,11,P3_lipid,0.5

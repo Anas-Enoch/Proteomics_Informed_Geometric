@@ -1,0 +1,13 @@
+axis,variant,panel_size,distortion
+or_aggregator,max,20,0.6502560014686781
+or_aggregator,max,40,0.6522261225104192
+or_aggregator,max,60,0.6534265251318918
+or_aggregator,max,80,0.6545311842600289
+or_aggregator,max,100,0.6556083877445293
+or_aggregator,max,120,0.6571688963812928
+saturation,linear,20,1.846619057757752
+saturation,linear,40,1.8347208641759674
+saturation,linear,60,1.8235765414204934
+saturation,linear,80,1.6807816305094767
+saturation,linear,100,1.6297252885526925
+saturation,linear,120,1.62349322441593

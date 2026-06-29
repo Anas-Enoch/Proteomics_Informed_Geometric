@@ -1,0 +1,2 @@
+operator,n_samples,n_cases,n_controls,n_metabolites_mapped,k_eigs,cv_auroc_mean,cv_auroc_std,cv_acc_mean,cv_acc_std,permtest_observed_auc,permtest_null_mean,permtest_null_std,permtest_p_value,seed
+permuted,43,31,12,36,10,0.9410317460317461,0.10253774753690491,0.8780555555555556,0.0820874458454647,0.9555555555555555,0.5066015873015873,0.1407305894725916,0.000999000999000999,0

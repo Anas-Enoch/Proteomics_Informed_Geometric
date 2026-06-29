@@ -1,0 +1,2 @@
+n_proteomics_genes,n_model_gpr_genes,n_genes_matched,pct_genes_matched,n_reactions,n_reactions_covered,pct_reactions_covered,W_R_min,W_R_max,W_R_mean,W_R_std,grassmann_distance,projection_distance,max_principal_angle_deg,spectral_cumulative_distortion,k_eigs
+1021,2887,1021,35.36543124350537,12971,3594,27.70796391951276,0.10339800627107537,7.344646114031697,1.1809239740623916,0.44668441506518913,0.43535758300526184,0.42505995950904124,23.229377436348425,0.15037452441401547,50

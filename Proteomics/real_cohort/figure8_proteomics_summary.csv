@@ -1,0 +1,2 @@
+operator,n_samples,n_cases,n_controls,n_metabolites_mapped,k_eigs,cv_auroc_mean,cv_auroc_std,cv_acc_mean,cv_acc_std,permtest_observed_auc,permtest_null_mean,permtest_null_std,permtest_p_value,seed
+proteomics,43,31,12,36,10,0.9404761904761905,0.10138248201420223,0.8711111111111112,0.08240407816828868,0.9444444444444444,0.5062142857142857,0.14065143561886514,0.000999000999000999,0

@@ -1,1 +1,10 @@
 .DS_Store
+.RData
+.Rhistory
+__pycache__/
+*.pyc
+.RData
+.RData
+nci60/human1_S_aligned.csv
+nci60/human1_S_aligned.npz
+__pycache__/
